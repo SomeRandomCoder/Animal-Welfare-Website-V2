@@ -1,0 +1,35 @@
+{
+  "name": "Spaza-Shop-Kata",
+  "version": "0.0.0",
+  "description": "",
+  "main": "script.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "express": "~4.13.4",
+    "express-handlebars": "~3.0.0",
+    "express-myconnection": "~1.0.4",
+    "handlebars": "~4.0.5",
+    "mysql": "~2.10.2",
+    "nodemon": "~1.9.2",
+    "express-session": "~1.14.0",
+    "bcrypt": "~0.8.7",
+    "flash": "~1.1.0",
+    "express-flash": "0.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SomeRandomCoder/Spaza-Shop.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/SomeRandomCoder/Spaza-Shop/issues"
+  }
+}

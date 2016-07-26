@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<!-- https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css -->
+<link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <!-- <div class="title-bar-title">Menu</div> -->
+        <a href="index.html"><img id="logo" src="Images/NavBarImage.png" alt="company logo"></a>
+
+    </div>
+    <link href="css/foundation.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+
+
+
+    <style>
+        .fi-social-facebook {
+            color: dodgerblue;
+            font-size: 2rem;
+        }
+
+        .fi-social-youtube {
+            color: red;
+            font-size: 2rem;
+        }
+
+        .fi-social-pinterest {
+            color: darkred;
+            font-size: 2rem;
+        }
+
+        i.fi-social-instagram {
+            color: brown;
+            font-size: 2rem;
+        }
+
+        i.fi-social-tumblr {
+            color: navy;
+            font-size: 2rem;
+        }
+
+        .fi-social-twitter {
+            color: skyblue;
+            font-size: 2rem;
+        }
+
+        .dropbtn {
+           background-color: #4CAF50;
+           color: white;
+           padding: 16px;
+           font-size: 16px;
+           border: none;
+           cursor: pointer;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+           /*position: relative;*/
+           /*display: inline-block;*/
+           margin-left:auto;
+           /*padding-left: 100px;*/
+           /*float: right;*/
+           /*margin-left: 50px;*/
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+           display: none;
+           position: absolute;
+           background-color: #f9f9f9;
+           min-width: 160px;
+           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+           color: black;
+           padding: 12px 16px;
+           text-decoration: none;
+           display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+           display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+           background-color: #3e8e41;
+        }
+
+    </style>
+
+    <body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+             <ul class="menu">
+             <li><a href="./">Home</a></li>
+             <li><a href="./aboutUs">About Us</a></li>
+
+
+                <li><a href="./events">News & Events</a></li>
+                <li><a href="./adoptions">Adoptions</a></li>
+                <li><a href="./lostAndFound">Lost & Found</a></li>
+                <li><a href="./donations">Donations</a></li>
+                <li><a href="./GivenGain">GivenGain</a></li>
+                <li><a href="./contactUs">Contact Us</a></li>
+                <li><a href="./users">Users</a></li>
+            </ul>
+
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+             <button class="dropbtn">Login</button>
+             <div class="dropdown-content">
+               <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+               <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+          </div>
+         </div>
+        </ul>
+    </div>
+
+
+
+
+
+    <br>
+
+</head>
+
+
+{{{body}}}
+</body>
+</html>
+
+
+
+
+<!-- <script> FUNCTIONALITY TO ACCESS FB PAGE
+                  window.fbAsyncInit = function() {
+                    FB.init({
+                      appId      : '137517509665522', // App ID
+                      status     : true, // check login status
+                      cookie     : true, // enable cookies to allow the server to access the session
+                      oauth      : true, // enable OAuth 2.0
+                      xfbml      : true  // parse XFBML
+                    });
+                  };
+                  (function(d){
+                     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+                     js = d.createElement('script'); js.id = id; js.async = true;
+                     js.src = '//connect.facebook.net/en_US/all.js';
+                     d.getElementsByTagName('head')[0].appendChild(js);
+                   }(document));
+        </script>         -->

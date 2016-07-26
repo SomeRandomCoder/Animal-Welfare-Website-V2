@@ -1,0 +1,167 @@
+<hr>
+<div class='container'>
+
+  <h2>Contact Information</h2>
+<hr>
+      <p>
+          <b>General :</b> admin@awscape.org.za<br>
+      </p>
+
+      <p>
+        <b>Adoptions :</b> adoptions@awscape.org.za<br>
+      </p>
+
+      <p>
+        <b>Inspectorate (Complaints) :</b> inspector@awscape.org.za<br>
+      </p>
+
+      <p>
+        <b>T (+27) 21 692 2626</b><br>
+
+      </p>
+
+      <p>
+        <b>F (+27) 21 691 1328</b><br>
+      </p>
+
+
+    <p>
+      Papkuilsvlei Road<br>
+      Philippi<br>
+      Western cape<br>
+      South Africa<br>
+    </p>
+<p>
+    PO Box 32057<br>
+    Ottery<br>
+    7808<br>
+    South Africa <br>
+  </p>
+  <hr>
+<div class="row">
+    <div id="map" ></div>
+   <script>
+     function initMap() {
+       var mapDiv = document.getElementById('map');
+       var map = new google.maps.Map(mapDiv, {
+           center: {lat: -34.0054, lng: 18.544989999999984},
+           zoom: 12
+       });
+     }
+
+     function mapMarker(){
+       var mapDiv = document.getElementsByID("map");
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-34.0054,18.544989999999984),
+            map: map,
+            title: 'Hello World!'
+          });
+}
+
+
+   </script>
+   <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4DroiyCfO_GHOTkwjIV3VmeD7VUSMQkU&callback=initMap">
+   </script>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Send Us an Email:<h2>
+    </div>
+
+    <form role="form" action="" method="post" >
+      <div class="col-lg-6">
+
+        <div class="form-group">
+          <label for="InputName">Your Name</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        </div>
+        <div class="form-group">
+          <label for="InputEmail">Your Email</label>
+          <div class="input-group">
+            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
+            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        </div>
+        <div class="form-group">
+          <label for="InputMessage">Message</label>
+          <div class="input-group">
+            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        </div>
+        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+      </div>
+    </form>
+</div>
+
+
+
+
+
+</div>
+</div>
+<script>
+  var Activity = "";
+
+  var active = function() {
+    console.log(Activity);
+    Activity = "Active";
+  }
+  var Very_active = function() {
+    console.log(Activity);
+    Activity = "Very active";
+  }
+  var Dormant = function() {
+    console.log(Activity);
+    Activity = "Dormant";
+  }
+  var Potato = function() {
+    console.log(Activity);
+    Activity = "Potato";
+  }
+</script>
+
+<script>
+if( $('.floating-labels').length > 0 ) floatLabels();
+
+function floatLabels() {
+var inputFields = $('.floating-labels .cd-label').next();
+
+inputFields.each(function(){
+  var singleInput = $(this);
+
+  singleInput.keyup(function(){
+    checkVal(singleInput);
+  });
+});
+}
+
+</script>
+
+<style>
+
+#map {
+       width: 1000px;
+       height: 600px;
+     }
+
+.cd-form .icon input, .cd-form .icon select, .cd-form .icon textarea {
+padding-left: 54px !important;
+}
+.cd-form .user {
+background: url("../img/cd-icon-user.svg") no-repeat 16px center;
+}
+.cd-form [required].user {
+background: url("../img/cd-icon-user.svg") no-repeat 16px center,
+      url("../img/cd-required.svg") no-repeat top right;
+}
+
+.cd-form [required] {
+ 	background: url("../img/cd-required.svg") no-repeat top right;
+}
+
+.cd-form .error {
+	border-color: #e94b35 !important;
+}
+</style>
