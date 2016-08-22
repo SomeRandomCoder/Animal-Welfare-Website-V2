@@ -1,4 +1,4 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var flash = require('express-flash');
 
 module.exports = function(req, res, next) {

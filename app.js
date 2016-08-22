@@ -6,26 +6,13 @@ var mysql = require('mysql');
 var myConnection = require("express-myconnection");
 var bodyParser = require('body-parser');
 var session = require("express-session");
-var bcrypt=require("bcrypt");
+var bcrypt=require("bcryptjs");
 var flash=require('express-flash');
 
 
-// var weeklySales = require('./functions/weeklySales');
-// var mostPopularProduct = require('./functions/mostPopularProduct');
-// var leastPopularProduct = require('./functions/leastPopularProduct');
-// var mostPopularCategory = require('./functions/mostPopularCategory');
-// var leastPopularCategory = require('./functions/leastPopularCategory');
-// var mostProfitableProduct = require('./functions/mostProfitableProduct');
-// var mostProfitableCategory = require("./functions/mostProfitableCategory");
-// var categories = require("./functions/mostPopularCategory");
-// var bought = require("./functions/mostProfitableCategory");
-// var categoriesCRUD=require('./functions/categoriesCRUD');
-// var productsCRUD=require("./functions/productsCRUD");
-// var salesCRUD=require("./functions/salesCRUD");
-// var purchaseCRUD=require("./functions/purchasesCRUD");
-var signup=require("./functions/signup");
-var usersCRUD=require("./functions/users");
-var login=require("./functions/login");
+var signup = require("./functions/signup");
+var users = require("./functions/users");
+var login = require("./functions/login");
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -36,28 +23,18 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 var dbOptions = {
-  host: "localhost",
-  user: 'root',
-  password: "mxmaolqk",
-  port: 3306,
-  database: 'nelisaDB'
+  // host: "localhost",
+  // user: 'root',
+  // password: "mxmaolqk",
+  // port: 3306,
+  // database: 'nelisaDB'
 };
 
-app.use(myConnection(mysql, dbOptions, "single"));
+// app.use(myConnection(mysql, dbOptions, "single"));
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: "mxmaolqk",
-  database: 'nelisaDB'
+// var connection = mysql.createConnection(dbOptions);
 
-});
 
-var server = app.listen(3000, function() {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log("app listening at http://%s:%s", host, port);
-});
 
 
 app.engine("handlebars", handlebars({
@@ -126,17 +103,17 @@ app.use(session({
 
 // });
 
-// app.get("/signup", function(req, res, next){
-//   console.log("DIRECTED TO SIGNUP ROUTE");
-//   req.getConnection(function(err, connection){
-//     // connection = mysql.createConnection(dbOptions);
-//     if(err) return next(err);
-//     console.log("RENDERING SIGNUP PAGE");
-//     res.render("signup");
-//   });
-// });
-//
-// app.post('/signup', signup);
+app.get("/signup", function(req, res, next){
+  console.log("DIRECTED TO SIGNUP ROUTE");
+  req.getConnection(function(err, connection){
+    // connection = mysql.createConnection(dbOptions);
+    if(err) return next(err);
+    console.log("RENDERING SIGNUP PAGE");
+    res.render("signup");
+  });
+});
+
+app.post('/signup', signup);
 
 app.get("/login", function(req, res, next){
   console.log("DIRECTED TO LOG IN ROUTE");
@@ -254,21 +231,21 @@ app.get("/contactus", function(req, res) {
 //
 // });
 //
-app.get("/users", function(req, res, next){
-  req.getConnection(function(err, connection) {
-      connection = mysql.createConnection(dbOptions);
-      if (err) return next(err);
-        connection.query("SELECT users.id, users.username, users.locked, users.admin FROM users ORDER BY users.id", function(err, data) {
-            if (err) return next(err);
-          // if (err) return next(err);
-          res.render("users", {
-              users: data
-          });
-          // connection.end();
-      });
-  });
-
-});
+// app.get("/users", function(req, res, next){
+//   req.getConnection(function(err, connection) {
+//       connection = mysql.createConnection(dbOptions);
+//       if (err) return next(err);
+//         connection.query("SELECT users.id, users.username, users.locked, users.admin FROM users ORDER BY users.id", function(err, data) {
+//             if (err) return next(err);
+//           // if (err) return next(err);
+//           res.render("users", {
+//               users: data
+//           });
+//           // connection.end();
+//       });
+//   });
+//
+// });
 
 // app.get('/sales/addSales', salesCRUD.showAdd);
 // app.post('/sales/addSales', salesCRUD.add);
@@ -295,10 +272,19 @@ app.get("/users", function(req, res, next){
 // app.post('/categories/update/:id', categoriesCRUD.update);
 // // app.post('/functions/categoriesCRUD', categoriesCRUD.add);
 //
-app.get('/users', usersCRUD.show);
-app.get('/users/addUser', usersCRUD.showAdd);
-app.post('/users/addUser', usersCRUD.add);
-app.get('/users/delete/:id', usersCRUD.delete);
-app.get('/users/editUsers/:id', usersCRUD.get);
-app.post('/users/update/:id', usersCRUD.update);
+// app.get('/users', usersCRUD.show);
+// app.get('/users/addUser', usersCRUD.showAdd);
+// app.post('/users/addUser', usersCRUD.add);
+// app.get('/users/delete/:id', usersCRUD.delete);
+// app.get('/users/editUsers/:id', usersCRUD.get);
+// app.post('/users/update/:id', usersCRUD.update);
 // app.get('/users/search/:searchVal', users.search);
+
+
+
+
+var server = app.listen(3000, function() {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log("app listening at http://%s:%s", host, port);
+});

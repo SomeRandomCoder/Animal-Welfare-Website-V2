@@ -1,5 +1,5 @@
 // var admin = document.getElementById("adminSwitch");
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 exports.show = function(req, res, next) {
     req.getConnection(function(err, connection) {
