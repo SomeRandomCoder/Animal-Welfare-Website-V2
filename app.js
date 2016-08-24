@@ -148,6 +148,12 @@ app.get("/aboutusindividuals", function(req, res) {
 app.get("/adoptions", function(req, res) {
   res.render("adoptions");
 });
+app.get("/adoptCat", function(req, res) {
+  res.render("adoptCat");
+});
+app.get("/adoptDog", function(req, res) {
+  res.render("adoptDog");
+});
 
 app.get("/donations", function(req, res) {
   res.render("donations");

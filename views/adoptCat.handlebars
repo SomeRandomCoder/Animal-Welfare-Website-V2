@@ -1,0 +1,32 @@
+<form action ="/adoptions/adoptCat/" method="POST">
+
+<div class="row-list">
+<div class="large-2 columns">Name</div>
+<div class="large-2 columns">Age</div>
+<div class="large-2 columns">gender</div>
+<div class="large-4 columns">Bio</div>
+<div class="large-2 columns">Picture</div>
+
+
+</div>
+     {{#adoptions}}
+
+       <li class="large-4 columns db-List"> {{name}}</li>
+       <li class="large-2 columns db-List">{{age}}</li>
+       <li class="large-2 columns db-List">{{gender}}</li>
+       <li class="large-4 columns db-List">{{bio}}</li>
+       <li class="large-4 columns db-List">{{image}}</li>
+
+     {{/adoptions}}
+ </ul>
+</form>
+
+
+<style>
+.columns{
+ height: 55px;
+ border: 1px solid #466d98;
+
+}
+
+</style>
