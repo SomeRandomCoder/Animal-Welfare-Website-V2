@@ -1,5 +1,4 @@
 var bcrypt = require('bcryptjs');
-var lockCount = 0;
 module.exports = function(req, res) {
 
     var username = req.body.username;
@@ -14,7 +13,7 @@ module.exports = function(req, res) {
           return res.redirect("/login");
           }
 
-            if (user.locked === 0) {
+
                 bcrypt.compare(password, user.password, function(err, match) {
                     if (match) {
                         req.session.username = user.username;
@@ -26,24 +25,11 @@ module.exports = function(req, res) {
                         return res.redirect("/");
                     }
                     else {
-                        lockCount ++;
-                        if (lockCount === 5) {
-                          if(lockCount >= 5){
-                            lockCount = 0;
-                          }
-                            connection.query('UPDATE users SET locked = 1 WHERE id = ?', [id], function(err, rows) {
-                                return res.redirect("/login");
-                            });
-                        }
-                        else {
                             return res.redirect("/login");
-                          }
                         }
                     });
-            }
-             else {
-                return res.redirect("/login");
-            }
+
+
 
 
 

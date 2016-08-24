@@ -103,17 +103,17 @@ app.use(session({
 
 // });
 
-app.get("/signup", function(req, res, next){
-  console.log("DIRECTED TO SIGNUP ROUTE");
-  req.getConnection(function(err, connection){
-    // connection = mysql.createConnection(dbOptions);
-    if(err) return next(err);
-    console.log("RENDERING SIGNUP PAGE");
-    res.render("signup");
-  });
-});
+// app.get("/signup", function(req, res, next){
+//   console.log("DIRECTED TO SIGNUP ROUTE");
+//   req.getConnection(function(err, connection){
+//     // connection = mysql.createConnection(dbOptions);
+//     if(err) return next(err);
+//     console.log("RENDERING SIGNUP PAGE");
+//     res.render("signup");
+//   });
+// });
 
-app.post('/signup', signup);
+// app.post('/signup', signup);
 
 app.get("/login", function(req, res, next){
   console.log("DIRECTED TO LOG IN ROUTE");
@@ -147,6 +147,9 @@ app.get("/aboutusindividuals", function(req, res) {
 
 app.get("/adoptions", function(req, res) {
   res.render("adoptions");
+});
+app.get("/adoptions/add", function(req, res) {
+  res.render("addAnimal");
 });
 app.get("/adoptCat", function(req, res) {
   res.render("adoptCat");
