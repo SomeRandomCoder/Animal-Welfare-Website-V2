@@ -11,6 +11,7 @@ var flash=require('express-flash');
 
 
 var signup = require("./functions/signup");
+var adoptions = require('./functions/adoptions');
 var users = require("./functions/users");
 var login = require("./functions/login");
 
@@ -151,6 +152,7 @@ app.get("/adoptions", function(req, res) {
 app.get("/adoptions/add", function(req, res) {
   res.render("addAnimal");
 });
+app.post('/adoptions/add', adoptions.add);
 app.get("/adoptCat", function(req, res) {
   res.render("adoptCat");
 });
