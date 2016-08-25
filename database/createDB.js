@@ -4,11 +4,21 @@ var mysql = require('mysql');
 var myConnection = require('express-myconnection');
 var sql = fs.readFileSync('./sql/createDB.sql');
 
+var dbOptions = {
+  host: "localhost",
+  user: 'root',
+  password: "",
+  port: 3306,
+};
 
-req.getConnection(function(err, connection) {
+var connection = mysql.createConnection(dbOptions);
+
+
+exports.create = function(){
 
 
 
-
-
+connection.query(sql, [], function(err, rows){
+if(err) console.log(err);
 });
+};
