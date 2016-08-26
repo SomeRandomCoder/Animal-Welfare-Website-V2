@@ -158,6 +158,9 @@ app.get("/adoptDog", function(req, res) {
 app.get("/donations", function(req, res) {
   res.render("donations");
 });
+app.get("/inspectors", function(req, res) {
+  res.render("inspectors");
+});
 
 app.get("/events", function(req, res) {
   res.render("events");
@@ -170,6 +173,7 @@ app.get("/lostandfound", function(req, res) {
 app.get("/GivenGain", function(req, res) {
   res.render("GivenGain");
 });
+
 
 app.get("/contactus", function(req, res) {
   res.render("contactUs");
