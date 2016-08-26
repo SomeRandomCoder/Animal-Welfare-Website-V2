@@ -4,17 +4,17 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
     "express": "^4.13.4",
     "express-flash": "^0.0.2",
     "express-handlebars": "^3.0.0",
     "express-myconnection": "^1.0.4",
     "express-session": "^1.14.0",
-    "handlebars": "^4.0.5",
     "flash": "^1.1.0",
-    "nodemon": "^1.9.2",
+    "handlebars": "^4.0.5",
     "mysql": "^2.11.1",
-    "body-parser": "^1.15.2",
-    "bcryptjs": "~2.3.0"
+    "nodemon": "^1.9.2"
   },
   "devDependencies": {},
   "scripts": {

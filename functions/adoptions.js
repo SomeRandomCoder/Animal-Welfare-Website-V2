@@ -19,3 +19,17 @@ exports.add = function(req, res) {
     });
   });
 };
+exports.showCat = function(req, res) {
+  req.getConnection(function(err, connection){
+connection.query('SELECT * FROM `adoptions` WHERE animal = "cat"', [], function(err, results){
+return res.render('/adoptCat', {data: results});
+});
+  });
+};
+exports.showDog = function(req, res) {
+  req.getConnection(function(err, connection){
+connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results){
+return res.render('/adoptDog', {data: results});
+});
+  });
+};
