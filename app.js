@@ -7,11 +7,12 @@ var myConnection = require("express-myconnection");
 var bodyParser = require('body-parser');
 var session = require("express-session");
 var bcrypt=require("bcryptjs");
+var multer = require('multer');
 var flash=require('express-flash');
 
 
 var signup = require("./functions/signup");
-var adoptionsCRUD = require('./functions/adoptions');
+var adoptions = require('./functions/adoptions');
 var users = require("./functions/users");
 var login = require("./functions/login");
 
@@ -136,13 +137,9 @@ app.get("/adoptions", function(req, res) {
 app.get("/adoptions/add", function(req, res) {
   res.render("addAnimal");
 });
-app.post('/adoptions/add', adoptionsCRUD.add);
-app.get("/adoptCat", function(req, res) {
-  res.render("adoptCat");
-});
-app.get("/adoptDog", function(req, res) {
-  res.render("adoptDog");
-});
+app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,adoptions.add);
+app.get("/adoptCat", adoptions.showCat);
+app.get("/adoptDog", adoptions.showDog);
 
 app.get("/donations", function(req, res) {
   res.render("donations");
@@ -168,11 +165,11 @@ app.get("/contactus", function(req, res) {
   res.render("contactUs");
 });
 
-app.get('/adoptions', adoptionsCRUD.showCat);
-app.get('/adoptions', adoptionsCRUD.showDog);
-app.get('/adoptions/add', adoptionsCRUD.add);
-app.post('/adoptions/add', adoptionsCRUD.add);
-
+app.get('/adoptions', adoptions.showCat);
+app.get('/adoptions', adoptions.showDog);
+// app.get('/adoptions/add', adoptions.add);
+// app.post('/adoptions/add', adoptions.add);
+//
 
 
 var server = app.listen(3000, function() {

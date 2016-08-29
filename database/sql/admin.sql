@@ -1,1 +1,1 @@
-INSERT INTO `users` (username, password, admin) values ?;
+INSERT INTO `users` SET ?;

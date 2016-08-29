@@ -13,7 +13,8 @@ createDB.create();
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -22,8 +23,7 @@ var connection = mysql.createConnection(dbOptions);
 bcrypt.hash("123", 10 , function(err, hash){
 var data = {username: 'admin',
             password: hash,
-            admin: 1,
-          };
+            admin: 1};
 
 connection.query(users, [], function(err, rows){
 if(err) console.log(err);
