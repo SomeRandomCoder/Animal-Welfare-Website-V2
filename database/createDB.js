@@ -5,9 +5,9 @@ var myConnection = require('express-myconnection');
 var sql = fs.readFileSync('./sql/createDB.sql');
 
 var dbOptions = {
-  host: "localhost",
+  host: "127.0.0.1",
   user: 'root',
-  password: "",
+  password: "mxmaolqk",
   port: 3306,
 };
 

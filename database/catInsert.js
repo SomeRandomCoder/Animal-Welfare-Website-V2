@@ -4,11 +4,12 @@ var fs = require("fs");
 
 
 var data = {
+  animal: "Cat",
   name: "Sparky",
   age: 12,
   gender: "male",
   bio: "Test to see that insert works",
-  image: 1
+  image: "1"
 };
 
 var catInsert = String(fs.readFileSync('./sql/cat.sql'));

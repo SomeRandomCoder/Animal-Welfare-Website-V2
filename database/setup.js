@@ -11,9 +11,9 @@ var adoptions = String(fs.readFileSync('./sql/adoptions.sql'));
 
 createDB.create();
 var dbOptions = {
-  host: "localhost",
+  host: "127.0.0.1",
   user: 'root',
-  password: "",
+  password: "mxmaolqk",
   port: 3306,
   database: 'animalWelfare'
 };
