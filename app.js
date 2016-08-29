@@ -11,7 +11,7 @@ var flash=require('express-flash');
 
 
 var signup = require("./functions/signup");
-var adoptions = require('./functions/adoptions');
+var adoptionsCRUD = require('./functions/adoptions');
 var users = require("./functions/users");
 var login = require("./functions/login");
 
@@ -24,11 +24,11 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 var dbOptions = {
-  // host: "localhost",
-  // user: 'root',
-  // password: "mxmaolqk",
-  // port: 3306,
-  // database: 'nelisaDB'
+  host: "127.0.0.1",
+  user: 'root',
+  password: "mxmaolqk",
+  port: 3306,
+  database: 'animalWelfare'
 };
 
 // app.use(myConnection(mysql, dbOptions, "single"));
@@ -136,7 +136,7 @@ app.get("/adoptions", function(req, res) {
 app.get("/adoptions/add", function(req, res) {
   res.render("addAnimal");
 });
-app.post('/adoptions/add', adoptions.add);
+app.post('/adoptions/add', adoptionsCRUD.add);
 app.get("/adoptCat", function(req, res) {
   res.render("adoptCat");
 });
@@ -167,6 +167,13 @@ app.get("/GivenGain", function(req, res) {
 app.get("/contactus", function(req, res) {
   res.render("contactUs");
 });
+
+app.get('/adoptions', adoptionsCRUD.showCat);
+app.get('/adoptions', adoptionsCRUD.showDog);
+app.get('/adoptions/add', adoptionsCRUD.add);
+app.post('/adoptions/add', adoptionsCRUD.add);
+
+
 
 var server = app.listen(3000, function() {
   var host = server.address().address;
