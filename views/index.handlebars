@@ -12,6 +12,48 @@
 
 
 </div>
+<script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {
+            slideIndex = 1
+        }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 3000); // Change image every 3 seconds
+    }
+</script>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        };
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>
 
 <hr>
 
@@ -21,10 +63,10 @@
             </div>
             <div class="col-md-5">
 
-                <p><h3>The Animal Welfare Society of South Africa offers a full range of veterinary services to the underprivileged and disadvantaged communities of Cape Town.
+                <p><h4>The Animal Welfare Society of South Africa offers a full range of veterinary services to the underprivileged and disadvantaged communities of Cape Town.
               From its base in Philippi, the Society handles about 4,000 animals per month. The Clinic is open 7 days a week to accommodate those that are unable to bring their pets during the week.
               We have a fully equipped and very busy theatres where we do sterilizations, Orthopaedic and other operations. At any one time we can house over a hundred sick or injured animals.
-              We are committed to sterilizing every animal that comes through our hospital as our contribution to reducing the number of strays and unwanted animals in Cape Town</h3></p>
+              We are committed to sterilizing every animal that comes through our hospital as our contribution to reducing the number of strays and unwanted animals in Cape Town</h4></p>
 
             </div>
         </div>
@@ -51,51 +93,9 @@
         </div>
     </div>
 
-    
+
 
     </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        var slideIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > x.length) {
-                slideIndex = 1
-            }
-            x[slideIndex - 1].style.display = "block";
-            setTimeout(carousel, 3000); // Change image every 2 seconds
-        }
-    </script>
-
-    <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = x.length
-            };
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            x[slideIndex - 1].style.display = "block";
-        }
-    </script>
