@@ -27,7 +27,8 @@ app.use(express.static("public"));
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -52,7 +53,7 @@ app.use(session({
 
 app.use(function(req,res,next){
   var isAdmin = req.session.admin && req.session.username,
-      isUser = !req.session.admin && req.session.username,
+      isUser =  req.session.username,
       userInSession = req.session.username;
 
   var generalPath = req.path.split("/")[1] === "events"
@@ -65,6 +66,8 @@ app.use(function(req,res,next){
               ||req.path.split("/")[1] === "adoptCat"
               ||req.path.split("/")[1] === "adoptDog"
               ||req.path.split("/")[1] === "inspectors"
+              ||req.path.split("/")[1] === "login"
+              ||req.path.split("/")[1] === "logout"
               || req.path === "/";
 
 
@@ -88,88 +91,77 @@ app.use(function(req,res,next){
   }
   else
   if (isUser && generalPath) {
-    console.log("IS USER AND GENERAL PATH MOVING ON TO NEXT MIDDLEWARE");
+    // console.log("IS USER AND GENERAL PATH MOVING ON TO NEXT MIDDLEWARE");
     next();
   } else if (isUser && adminPath) {
-    console.log("IS USER BUT ATTEMPTING TO GO TO ADMIN PATH REDIRECTING PATH TO '/'");
+    // console.log("IS USER BUT ATTEMPTING TO GO TO ADMIN PATH REDIRECTING PATH TO '/'");
     res.redirect("/");
   } else if (isAdmin && (adminPath || generalPath)) {
-    console.log("IS ADMIN AND PATH IS ADMIN OR GENERAL. MOVING ON TO NEXT MIDDLEWARE");
+    // console.log("IS ADMIN AND PATH IS ADMIN OR GENERAL. MOVING ON TO NEXT MIDDLEWARE");
     next();
   }
 
 });
 
 
-app.get("/login", function(req, res, next){
-  console.log("DIRECTED TO LOG IN ROUTE");
-  req.getConnection(function(err, connection){
-    // connection = mysql.createConnection(dbOptions);
-    if(err) return next(err);
-    console.log("RENDERING LOG IN PAGE ");
-    res.render("login");
-  });
-});
-app.post('/login', login);
 
+app.post('/login', login);
+app.get('/login', function(req, res){
+  res.render('login',{admin: req.session.admin, user: req.session.username});
+});
 app.get('/logout', function(req, res) {
     delete req.session.username;
     delete req.session.admin;
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 
 app.get("/", function(req, res) {
-  res.render("index");
+  res.render("index",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/aboutus", function(req, res) {
-  res.render("AboutUs");
+  res.render("AboutUs",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/aboutusindividuals", function(req, res) {
-  res.render("AboutUsIndividuals");
+  res.render("AboutUsIndividuals",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/adoptions", function(req, res) {
-  res.render("adoptions");
+  res.render("adoptions",{admin: req.session.admin, user: req.session.username});
 });
 app.get("/adoptions/add", function(req, res) {
-  res.render("addAnimal");
+  res.render("addAnimal",{admin: req.session.admin, user: req.session.username});
 });
 app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,adoptions.add);
 app.get("/adoptCat", adoptions.showCat);
 app.get("/adoptDog", adoptions.showDog);
 
 app.get("/donations", function(req, res) {
-  res.render("donations");
+  res.render("donations",{admin: req.session.admin, user: req.session.username});
 });
 app.get("/inspectors", function(req, res) {
-  res.render("inspectors");
+  res.render("inspectors",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/events", function(req, res) {
-  res.render("events");
+  res.render("events",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/lostandfound", function(req, res) {
-  res.render("lostAndFound");
+  res.render("lostAndFound",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/GivenGain", function(req, res) {
-  res.render("GivenGain");
+  res.render("GivenGain",{admin: req.session.admin, user: req.session.username});
 });
 
 
 app.get("/contactus", function(req, res) {
-  res.render("contactUs");
+  res.render("contactUs",{admin: req.session.admin, user: req.session.username});
 });
 
-app.get('/adoptions', adoptions.showCat);
-app.get('/adoptions', adoptions.showDog);
-// app.get('/adoptions/add', adoptions.add);
-// app.post('/adoptions/add', adoptions.add);
-//
 
 
 var server = app.listen(3000, function() {

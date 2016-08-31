@@ -46,12 +46,14 @@
                 <ol>
                 <li><p>Please click on one of these buttons to take you to view all the animals that are up for adoption </p></li>
                 </ol>
-                <a class="btn btn-primary" href="/adoptCat">Adopt a Cat </a>
-                <a class="btn btn-primary" href="/adoptDog">Adopt a Dog</a>
+                <div class="row">
+                <a class="btn btn-primary col-md-6" href="/adoptCat">Adopt a Cat </a>
+                <a class="btn btn-primary col-md-6" href="/adoptDog">Adopt a Dog</a>
+              </div>
 
-
-                <a href="/adoptions/add" class = "btn btn-primary">Add an animal to adoptions</a>
-
+{{#if admin}}
+                <a href="/adoptions/add" class = "btn btn-primary col-md-12  center">Add an animal to adoptions</a>
+{{/if}}
 
             </div>
             <div class="col-md-3">
@@ -82,7 +84,7 @@
 
 
 
-  
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

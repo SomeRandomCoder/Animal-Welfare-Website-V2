@@ -1,10 +1,21 @@
 var bcrypt = require('bcryptjs');
+var mysql = require('mysql');
+var dbOptions = {
+  host: "127.0.0.1",
+  user: 'root',
+  // password: "mxmaolqk",
+  password: '5550121a',
+  port: 3306,
+  database: 'animalWelfare'
+};
+
+var connection = mysql.createConnection(dbOptions);
 module.exports = function(req, res) {
 
     var username = req.body.username;
     var password = req.body.password;
 
-    req.getConnection(function(err, connection) {
+
 
         connection.query('SELECT * FROM users where username = ?', username, function(err, users) {
           var user = users[0];
@@ -34,5 +45,5 @@ module.exports = function(req, res) {
 
 
         });
-    });
+
 };

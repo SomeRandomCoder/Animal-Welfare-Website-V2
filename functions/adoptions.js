@@ -2,8 +2,8 @@ var mysql=require('mysql');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
-  // password: '5550121a',
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -30,12 +30,12 @@ exports.add = function(req, res) {
 exports.showCat = function(req, res) {
 connection.query('SELECT * FROM `adoptions` WHERE animal = "cat"', [], function(err, results){
   // console.log(results);
-return res.render('adoptCat', {data: results});
+return res.render('adoptCat', {data: results,admin: req.session.admin, user: req.session.username});
 });
 };
 exports.showDog = function(req, res) {
 connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results){
     // console.log(results);
-return res.render('adoptDog', {data: results});
+return res.render('adoptDog', {data: results, admin:req.session.admin, user: req.session.username});
 });
 };
