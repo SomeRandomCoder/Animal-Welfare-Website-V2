@@ -52,10 +52,14 @@ app.use(session({
 }));
 
 app.use(function(req,res,next){
-  var isAdmin = req.session.admin && req.session.username,
-      isUser =  req.session.username,
-      userInSession = req.session.username;
+console.log();
 
+
+  var admin = req.session.admin && req.session.username,
+      user =  req.session.username,
+      userInSession = req.session.username;
+  //
+  console.log("middleware here... hello " + userInSession);
   var generalPath = req.path.split("/")[1] === "events"
               ||req.path.split("/")[1] === "aboutUs"
               || req.path.split("/")[1] === "adoptions"
@@ -69,37 +73,33 @@ app.use(function(req,res,next){
               ||req.path.split("/")[1] === "login"
               ||req.path.split("/")[1] === "logout"
               || req.path === "/";
-
-
-  var adminPath = req.path.split("/")[1] === "events"
-              ||req.path.split("/")[1] === "aboutUs"
-              || req.path.split("/")[1] === "adoptions"
-              || req.path.split("/")[1] === "donations"
-              || req.path.split("/")[1] === "lostAndFound"
-              || req.path.split("/")[1] === "GivenGain"
-              ||req.path.split("/")[1] === "contactUs"
-              ||req.path.split("/")[1] === "inspectors"
-              ||req.path.split("/")[1] === "adoptCat"
-              ||req.path.split("/")[1] === "adoptDog"
-              || req.path.split("/")[1] === "adoptions/add"
-              || req.path === "/";
-
-
-
-  if (!userInSession && generalPath) {
+  //
+  //
+  var adminPath = req.path.split("/")[2] === "add";
+  //
+  console.log(req.path);
+  //
+  //
+  // if (!userInSession && adminPath) {
+  //   console.log("goodbye");
+  //   res.redirect('/');
+  //   // next();
+  // }
+  if(!userInSession && generalPath){
+    console.log("continue");
     next();
   }
-  else
-  if (isUser && generalPath) {
-    // console.log("IS USER AND GENERAL PATH MOVING ON TO NEXT MIDDLEWARE");
-    next();
-  } else if (isUser && adminPath) {
-    // console.log("IS USER BUT ATTEMPTING TO GO TO ADMIN PATH REDIRECTING PATH TO '/'");
-    res.redirect("/");
-  } else if (isAdmin && (adminPath || generalPath)) {
-    // console.log("IS ADMIN AND PATH IS ADMIN OR GENERAL. MOVING ON TO NEXT MIDDLEWARE");
-    next();
-  }
+  // else
+  // if (isUser && generalPath) {
+  //   // console.log("IS USER AND GENERAL PATH MOVING ON TO NEXT MIDDLEWARE");
+  //   next();
+  // } else if (isUser && adminPath) {
+  //   // console.log("IS USER BUT ATTEMPTING TO GO TO ADMIN PATH REDIRECTING PATH TO '/'");
+  //   res.redirect("/");
+  // } else if (isAdmin && (adminPath || generalPath)) {
+  //   // console.log("IS ADMIN AND PATH IS ADMIN OR GENERAL. MOVING ON TO NEXT MIDDLEWARE");
+  //   next();
+  // }
 
 });
 
