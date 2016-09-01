@@ -1,0 +1,32 @@
+
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Dogs Up for Adoption
+
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        {{#data}}
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <!-- <a href="#"> -->
+                    <img class="img-responsive" src="{{image}}" alt="">
+                <!-- </a> -->
+                <h3>
+                  {{name}}
+                </h3>
+                <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+                <p>Bio: {{bio}}</p>
+            </div>
+            {{/data}}
+
+            <input type="radio" name="id" value="id" checked> Please Check the button if you want to remove this animal<br>
+            <!-- This radio button must be checked if the admin wants to delete the animal from the table, Should we allow them to select multiple animals and delete them all at once or individualy? -->
+
+
+
+    </div>

@@ -2,8 +2,8 @@ var mysql=require('mysql');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  // password: "mxmaolqk",
-  password: '5550121a',
+  password: "mxmaolqk",
+  // password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
