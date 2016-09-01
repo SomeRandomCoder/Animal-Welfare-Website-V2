@@ -12,7 +12,7 @@ var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
     // var file = req.body.img;
-    var path = (req.file.path).replace("public\\" , '');
+    var path = (req.file.path).replace("public/" , '');
     var data = {
       animal: req.body.animal,
       name: req.body.name,

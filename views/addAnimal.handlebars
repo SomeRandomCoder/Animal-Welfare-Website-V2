@@ -2,12 +2,19 @@
 
 <h1>ADD ANIMAL TO ADOPTIONS</h1>
 <form action='/adoptions/add' method="POST" enctype = "multipart/form-data">
-Name:<input name='name' type="text"/>
-Gender:<input name='gender' type="text"/>
-Age:<input name='age' type="text"/>
-ANIMAL(THIS SHOULD BE A SELECT):<input name='animal' type="text"/>
-bio:<input name='bio' type="text"/>
-IMAGE:<input name='img' type="file"/>
+Name:<input name='name' type="text" required/>
+Gender:<input name='gender' type="text" required/>
+Age:<input name='age' type="text" required/>
+ANIMAL(THIS SHOULD BE A SELECT):
+<!-- <input name='animal' type="text" required/> -->
+
+<select name='animal' required>
+  <option value="dog">Dog</option>
+  <option value="cat">Cat</option>
+</select>
+
+bio:<input name='bio' type="text" required/>
+IMAGE:<input name='img' type="file" required/>
 <button class="btn" type="submit">Submit</button>
 </form>
 </div>

@@ -58,8 +58,6 @@ console.log();
   var admin = req.session.admin && req.session.username,
       user =  req.session.username,
       userInSession = req.session.username;
-  //
-  console.log("middleware here... hello " + userInSession);
   var generalPath = req.path.split("/")[1] === "events"
               ||req.path.split("/")[1] === "aboutUs"
               || req.path.split("/")[1] === "adoptions"
@@ -73,33 +71,21 @@ console.log();
               ||req.path.split("/")[1] === "login"
               ||req.path.split("/")[1] === "logout"
               || req.path === "/";
-  //
-  //
   var adminPath = req.path.split("/")[2] === "add";
-  //
-  console.log(req.path);
-  //
-  //
-  // if (!userInSession && adminPath) {
-  //   console.log("goodbye");
-  //   res.redirect('/');
-  //   // next();
-  // }
-  if(!userInSession && generalPath){
-    console.log("continue");
-    next();
+// console.log("hello " + req.session.username);
+  if(!admin && adminPath){
+    res.redirect('/adoptions');
   }
-  // else
-  // if (isUser && generalPath) {
-  //   // console.log("IS USER AND GENERAL PATH MOVING ON TO NEXT MIDDLEWARE");
-  //   next();
-  // } else if (isUser && adminPath) {
-  //   // console.log("IS USER BUT ATTEMPTING TO GO TO ADMIN PATH REDIRECTING PATH TO '/'");
-  //   res.redirect("/");
-  // } else if (isAdmin && (adminPath || generalPath)) {
-  //   // console.log("IS ADMIN AND PATH IS ADMIN OR GENERAL. MOVING ON TO NEXT MIDDLEWARE");
-  //   next();
-  // }
+  else
+  if (!user && generalPath) {
+
+    next();
+}
+else
+if (user && generalPath) {
+
+  next();
+}
 
 });
 
