@@ -70,8 +70,11 @@ console.log();
               ||req.path.split("/")[1] === "inspectors"
               ||req.path.split("/")[1] === "login"
               ||req.path.split("/")[1] === "logout"
+              ||req.path.split("/")[1] === "allAnimals"
               || req.path === "/";
+
   var adminPath = req.path.split("/")[2] === "add";
+              // ||req.path.split("/")[1] === "allAnimals";
 // console.log("hello " + req.session.username);
   if(!admin && adminPath){
     res.redirect('/adoptions');
@@ -124,9 +127,12 @@ app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,ad
 app.get("/adoptCat", adoptions.showCat);
 app.get("/adoptDog", adoptions.showDog);
 
+
 app.get("/allAnimals", function(req, res) {
   res.render("allAnimals",{admin: req.session.admin, user: req.session.username});
 });
+app.get("/allAnimals", adoptions.showAll);
+
 
 app.get("/donations", function(req, res) {
   res.render("donations",{admin: req.session.admin, user: req.session.username});
