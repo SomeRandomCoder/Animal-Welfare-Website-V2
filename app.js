@@ -27,8 +27,8 @@ app.use(express.static("public"));
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  // password: "mxmaolqk",
-  password: '5550121a',
+  password: "mxmaolqk",
+  // password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -75,6 +75,7 @@ console.log();
 
   var adminPath = req.path.split("/")[2] === "add"
                 || req.path.split("/")[1] === "allAnimals";
+
 // console.log("hello " + req.session.username);
   if(!admin && adminPath){
     res.redirect('/adoptions');
@@ -128,6 +129,13 @@ app.get("/adoptCat", adoptions.showCat);
 app.get("/adoptDog", adoptions.showDog);
 app.get("/allAnimals", adoptions.showAll);
 app.post('/allAnimals/remove/:id', adoptions.remove);
+
+
+app.get("/allAnimals", function(req, res) {
+  res.render("allAnimals",{admin: req.session.admin, user: req.session.username});
+});
+app.get("/allAnimals", adoptions.showAll);
+
 
 app.get("/donations", function(req, res) {
   res.render("donations",{admin: req.session.admin, user: req.session.username});
