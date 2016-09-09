@@ -11,9 +11,9 @@ var multer = require('multer');
 var flash=require('express-flash');
 
 
-var signup = require("./functions/signup");
+
 var adoptions = require('./functions/adoptions');
-var users = require("./functions/users");
+
 var login = require("./functions/login");
 
 app.use(bodyParser.urlencoded({
@@ -70,8 +70,11 @@ console.log();
               ||req.path.split("/")[1] === "inspectors"
               ||req.path.split("/")[1] === "login"
               ||req.path.split("/")[1] === "logout"
+              ||req.path.split("/")[1] === "allAnimals"
               || req.path === "/";
-  var adminPath = req.path.split("/")[2] === "add";
+
+  var adminPath = req.path.split("/")[2] === "add"
+                || req.path.split("/")[1] === "allAnimals";
 // console.log("hello " + req.session.username);
   if(!admin && adminPath){
     res.redirect('/adoptions');
@@ -123,6 +126,8 @@ app.get("/adoptions/add", function(req, res) {
 app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,adoptions.add);
 app.get("/adoptCat", adoptions.showCat);
 app.get("/adoptDog", adoptions.showDog);
+app.get("/allAnimals", adoptions.showAll);
+app.post('/allAnimals/remove/:id', adoptions.remove);
 
 app.get("/donations", function(req, res) {
   res.render("donations",{admin: req.session.admin, user: req.session.username});

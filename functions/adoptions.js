@@ -39,3 +39,17 @@ connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(
 return res.render('adoptDog', {data: results, admin:req.session.admin, user: req.session.username});
 });
 };
+
+exports.showAll=function(req,res){
+  connection.query("SELECT * FROM `adoptions`",[],function(err,result){
+    res.render('allAnimals', {data: result, admin:req.session.admin, user: req.session.username});
+  });
+};
+exports.remove = function(req, res){
+  var id = req.params.id;
+  console.log(id);
+  connection.query('DELETE FROM adoptions WHERE id= ?', id, function(err, rows){
+    if(err) console.log(err);
+    res.redirect('/allAnimals');
+  });
+};

@@ -47,12 +47,34 @@
                 <li><p>Please click on one of these buttons to take you to view all the animals that are up for adoption </p></li>
                 </ol>
                 <div class="row">
-                <a class="btn btn-primary col-md-6" href="/adoptCat">Adopt a Cat </a>
-                <a class="btn btn-primary col-md-6" href="/adoptDog">Adopt a Dog</a>
-              </div>
+                      <div class="col-md-12">
+                        <a class="btn btn-primary col-md-12" href="/adoptCat">Adopt a Cat </a>
+                      </div>
+
+                      <div class = "spacer"></div>
+
+                      <div class="col-md-12">
+                        <a class="btn btn-primary col-md-12" href="/adoptDog">Adopt a Dog</a>
+                      </div>
+
+                      <div class = "spacer"></div>
+                </div>
+
+                <div class = "spacer"></div>
+
 
 {{#if admin}}
+
+                  <div class="col-md-12">
+
                 <a href="/adoptions/add" class = "btn btn-primary col-md-12  center">Add an animal to adoptions</a>
+                <div class = "spacer"></div>
+              </div>
+
+                <div class="col-md-12">
+                <a href="/allAnimals" class = "btn btn-primary col-md-12  center">Remove an animal from  adoptions</a>
+              </div>
+
 {{/if}}
 
             </div>
@@ -79,5 +101,13 @@
             </div>
 
         </div>
-  
+
   </div>
+
+  <style>
+  .spacer{
+    width:10px;
+     height:auto;
+     display:inline-block;
+  }
+  </style>
