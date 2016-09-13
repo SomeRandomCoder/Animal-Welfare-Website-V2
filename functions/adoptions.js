@@ -2,8 +2,8 @@ var mysql=require('mysql');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
-  // password: '5550121a',
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -40,7 +40,6 @@ return res.render('adoptDog', {data: results, admin:req.session.admin, user: req
 });
 };
 
-<<<<<<< HEAD
 exports.showAll=function(req,res){
   connection.query("SELECT * FROM `adoptions`",[],function(err,result){
     res.render('allAnimals', {data: result, admin:req.session.admin, user: req.session.username});
@@ -54,18 +53,3 @@ exports.remove = function(req, res){
     res.redirect('/allAnimals');
   });
 };
-=======
-exports.showAll=function(res,req){
-  var data = {
-    animal: adoptions.animal,
-    name: adoptions.name,
-    age: adoptions.age,
-    gender: adoptions.gender,
-    bio: adoptions.bio,
-    image: adoptions.image
-  };
-  connection.query("SELECT * FROM `adoptions`",function(err,result){
-    res.render('allAnimals', {data: results, admin:req.session.admin, user: req.session.username});
-  });
-}
->>>>>>> 3e52b1af67188c0767d4dc45a99bd00621933ec6
