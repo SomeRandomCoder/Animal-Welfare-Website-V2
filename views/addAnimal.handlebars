@@ -1,20 +1,35 @@
 <div class="container">
 
-<h1>ADD ANIMAL TO ADOPTIONS</h1>
-<form action='/adoptions/add' method="POST" enctype = "multipart/form-data">
-Name:<input name='name' type="text" required/>
-Gender:<input name='gender' type="text" required/>
-Age:<input name='age' type="text" required/>
-ANIMAL(THIS SHOULD BE A SELECT):
-<!-- <input name='animal' type="text" required/> -->
+  <h1>ADD ANIMAL TO ADOPTIONS</h1>
+  <form action='/adoptions/add' method="POST" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-3">Name:
+        <input name='name' type="text" required/>
+      </div>
+      <div class="col-md-3">Gender:
+        <input name='gender' type="text" required/>
+      </div>
+      <div class="col-md-3">Age:
+        <input name='age' type="text" required/>
+      </div>
+      <div class="col-md-3">
+        ANIMAL:
+        <select name='animal' required>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        bio:
+        <input style='width: 90%' name='bio' type="text" required/>
+      </div>
+      <div class="col-md-12">
+        <input name='img' type="file" required/>
+      </div>
 
-<select name='animal' required>
-  <option value="dog">Dog</option>
-  <option value="cat">Cat</option>
-</select>
-
-bio:<input name='bio' type="text" required/>
-IMAGE:<input name='img' type="file" required/>
-<button class="btn" type="submit">Submit</button>
-</form>
+      <div class="col-md-12">
+        <button class="btn" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>

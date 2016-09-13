@@ -12,7 +12,8 @@ var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
     // var file = req.body.img;
-    var path = (req.file.path).replace("public/" , '');
+    // var path = (req.file.path).replace("public/" , '');
+    var path = (req.file.path).replace("public\\" , '');
     var data = {
       animal: req.body.animal,
       name: req.body.name,
@@ -35,7 +36,6 @@ return res.render('adoptCat', {data: results,admin: req.session.admin, user: req
 };
 exports.showDog = function(req, res) {
 connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results){
-    // console.log(results);
 return res.render('adoptDog', {data: results, admin:req.session.admin, user: req.session.username});
 });
 };

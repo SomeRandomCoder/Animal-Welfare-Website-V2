@@ -9,29 +9,28 @@
             </div>
         </div>
         <!-- /.row -->
-        {{#data}}
 
-        <form action='/allAnimals/remove/{{id}}' method='POST'>
+            <div class='row'>
+            <!-- /.row -->
+            {{#data}}
+            <div class="col-md-4">
+                <form action='/allAnimals/remove/{{id}}' method='POST'>
+                  <!-- <div class="col-md-4 portfolio-item"> -->
+                    <!-- <a href="#"> -->
+                        <img class="img-responsive" src="{{image}}" alt="">
+                    <!-- </a> -->
+                    <button class="col-md-12" type='submit'>REMOVE</button>
+                    <h3>
+                      {{name}}
+                    </h3>
+                    <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+                    <p>Bio: {{bio}}</p>
+                  </form>
+                  <!-- </div> -->
+                </div>
 
-        <div class="row" >
-            <div class="col-md-4 portfolio-item" >
-                <!-- <a href="#"> -->
-                    <img class="img" class="img-responsive" src="{{image}}" alt="">
-                <!-- </a> -->
-                <h3>
-                  {{name}}
-                </h3>
-                <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
-                <p>Bio: {{bio}}</p>
-
-                <button type='submit'>REMOVE</button>
-            </div>
-          </form>
-
-            </div>
-
-            {{/data}}
-
+                {{/data}}
+              </div>
 
 
 

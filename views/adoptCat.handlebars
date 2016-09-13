@@ -1,17 +1,19 @@
+
     <div class="container">
 
         <!-- Page Header -->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Cats Up for Adoption
-                    <!-- <small>Secondary Text</small> -->
+
                 </h1>
             </div>
         </div>
+        <div class='row'>
         <!-- /.row -->
         {{#data}}
-        <div class="row">
-            <div class="col-md-4 portfolio-item">
+        <div class="col-md-4">
+              <!-- <div class="col-md-4 portfolio-item"> -->
                 <!-- <a href="#"> -->
                     <img class="img-responsive" src="{{image}}" alt="">
                 <!-- </a> -->
@@ -20,11 +22,11 @@
                 </h3>
                 <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
                 <p>Bio: {{bio}}</p>
-
+              <!-- </div> -->
             </div>
             {{/data}}
-      
-    </div>
-    <!-- /.container -->
+          </div>
 
-    <!-- jQuery -->
+
+
+    </div>
