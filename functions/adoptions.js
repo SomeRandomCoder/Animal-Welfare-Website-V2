@@ -40,6 +40,7 @@ return res.render('adoptDog', {data: results, admin:req.session.admin, user: req
 });
 };
 
+
 exports.showAll=function(req,res){
   connection.query("SELECT * FROM `adoptions`",[],function(err,result){
     res.render('allAnimals', {data: result, admin:req.session.admin, user: req.session.username});

@@ -92,3 +92,13 @@ width: 100%;
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+.img{
+  width: 250px;
+  height:300px;
+  padding-bottom: 10px;
+
+}
+.row{
+  display: inline-block;
+}

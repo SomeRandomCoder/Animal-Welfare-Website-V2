@@ -30,55 +30,7 @@
 </head>
 
 <style>
-/*NEW NAV BAR STYLING PLEASE DONT DELETE COMMENTED OUT CODE*/
-/*body {
-    margin: 0;
-    padding: 0;
-    text-align: justify;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    background-color:#425eb4;
-}
-*{
-    margin: 0 auto 0 auto;
-}
 
-#wrap {
-    height:150px;
-    background:url(images/header1.png) no-repeat center;
-    text-align:center;
-    background-color:#FFF;
-}
-
-#nav {
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 0;
-    list-style: none;
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    margin-left: 0px;  // looks like bootstrap is putting a left margin on your #nav you may want it off.
-
-}
-#nav li {
-   display: inline-block;
-   text-align:center;
-}
-#nav li a {
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align:center;
-    color: #069;
-    border-right: 1px solid #ccc; }
-#nav li a:hover {
-    color: #c00;
-    text-align:center;
-    background-color: #fff;}*/
-    /* End navigation bar styling. */
 
 
 
@@ -142,19 +94,6 @@ ul.topnav li.icon {display: none;}
 <body>
 
 
-
-<!-- <ul id="nav">
-<li><a href="#">About Us</a></li>
-<li><a href="#">Our Products</a></li>
-<li><a href="#">FAQs</a></li>
-<li><a href="#">Contact</a></li>
-<li><a href="#">Login</a></li>
-</ul> -->
-
-
-
-
-
     <ul class="topnav" id="myTopnav" >
       {{#unless user}}
       {{#unless admin}}
@@ -167,12 +106,6 @@ ul.topnav li.icon {display: none;}
       <li><a href="/GivenGain">GivenGain</a></li>
       <li><a href="/inspectors">Inspectors</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
-<<<<<<< HEAD
-      <!-- <li><a href="/allAnimals">All Animals</a></li> -->
-=======
-      <li><a href="/allAnimals">All Animals</a></li>
->>>>>>> 3e52b1af67188c0767d4dc45a99bd00621933ec6
-
       <li><a href="/login">Login</a></li>
       {{/unless}}
       {{/unless}}
@@ -188,11 +121,6 @@ ul.topnav li.icon {display: none;}
       <li><a href="/inspectors">Inspectors</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/allAnimals">All Animals</a></li>
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> 3e52b1af67188c0767d4dc45a99bd00621933ec6
       <li><a href="/logout">Logout</a></li>
 
       {{/if}}
