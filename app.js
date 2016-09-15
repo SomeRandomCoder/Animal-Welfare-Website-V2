@@ -13,6 +13,7 @@ var flash=require('express-flash');
 
 
 var adoptions = require('./functions/adoptions');
+var mailer = require('./functions/mailer');
 
 var login = require("./functions/login");
 
@@ -157,9 +158,10 @@ app.get("/GivenGain", function(req, res) {
 });
 
 
-app.get("/contactus", function(req, res) {
+app.get("/contactUs", function(req, res) {
   res.render("contactUs",{admin: req.session.admin, user: req.session.username});
 });
+app.post('/contactus', mailer.send);
 
 
 
