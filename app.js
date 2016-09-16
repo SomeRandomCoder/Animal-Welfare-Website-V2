@@ -28,8 +28,8 @@ app.use(express.static("public"));
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  // password: "mxmaolqk",
-  password: '5550121a',
+  password: "mxmaolqk",
+  // password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -53,7 +53,7 @@ app.use(session({
 }));
 
 app.use(function(req,res,next){
-console.log();
+
 
 
   var admin = req.session.admin && req.session.username,

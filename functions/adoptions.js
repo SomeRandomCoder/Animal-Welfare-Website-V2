@@ -2,8 +2,8 @@ var mysql=require('mysql');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
-  // password: '5550121a',
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -12,8 +12,8 @@ var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
     // var file = req.body.img;
-    var path = (req.file.path).replace("public/" , '');
-    // var path = (req.file.path).replace("public\\" , '');
+    // var path = (req.file.path).replace("public/" , '');
+    var path = (req.file.path).replace("public\\" , '');
     var data = {
       animal: req.body.animal,
       name: req.body.name,
@@ -48,7 +48,7 @@ exports.showAll=function(req,res){
 };
 exports.remove = function(req, res){
   var id = req.params.id;
-  console.log(id);
+  // console.log(id);
   connection.query('DELETE FROM adoptions WHERE id= ?', id, function(err, rows){
     if(err) console.log(err);
     res.redirect('/allAnimals');
