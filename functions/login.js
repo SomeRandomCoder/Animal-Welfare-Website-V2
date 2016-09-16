@@ -27,12 +27,19 @@ module.exports = function(req, res) {
 
                 bcrypt.compare(password, user.password, function(err, match) {
                     if (match) {
-                        req.session.username = user.username;
+                      if(user.username.match(username)){
                         if(user.admin === 1){
-                        req.session.admin = {
-                          admin: req.session.username
-                        };
-                      }
+                          req.session.admin = {
+                            admin: req.session.username
+                          };
+                        }
+                       req.session.username = user.username;
+                     }
+                     else {
+                      //  req.flash('warning', 'Invalid username or password');
+                       return res.redirect("/login");
+                     }
+
                         return res.redirect("/");
                     }
                     else {

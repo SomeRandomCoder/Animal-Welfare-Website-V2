@@ -1,4 +1,5 @@
 var mysql=require('mysql');
+var fs = require('fs');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
@@ -49,8 +50,12 @@ exports.showAll=function(req,res){
 exports.remove = function(req, res){
   var id = req.params.id;
   // console.log(id);
+  connection.query('SELECT image FROM adoptions where id = ?', id, function(err, image){
+// console.log(image[0].image);
+fs.unlink('./public/' + image[0].image);
   connection.query('DELETE FROM adoptions WHERE id= ?', id, function(err, rows){
     if(err) console.log(err);
     res.redirect('/allAnimals');
+  });
   });
 };
