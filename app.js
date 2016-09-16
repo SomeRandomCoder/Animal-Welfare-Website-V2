@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
-
+app.use(flash());
 app.use(express.static("public"));
 
 var dbOptions = {

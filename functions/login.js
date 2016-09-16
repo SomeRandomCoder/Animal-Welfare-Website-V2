@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var dbOptions = {
   host: "127.0.0.1",
   user: 'root',
-  password: "mxmaolqk",
-  // password: '5550121a',
+  // password: "mxmaolqk",
+  password: '5550121a',
   port: 3306,
   database: 'animalWelfare'
 };
@@ -21,6 +21,7 @@ module.exports = function(req, res) {
           var user = users[0];
           var id = user.id;
           if(users[0] === undefined){
+            req.flash('warning', 'Invalid username or password');
           return res.redirect("/login");
           }
 
@@ -36,13 +37,14 @@ module.exports = function(req, res) {
                        req.session.username = user.username;
                      }
                      else {
-                      //  req.flash('warning', 'Invalid username or password');
+                       req.flash('warning', 'Invalid username or password');
                        return res.redirect("/login");
                      }
 
                         return res.redirect("/");
                     }
                     else {
+                      req.flash('warning', 'Invalid username or password');
                             return res.redirect("/login");
                         }
                     });
