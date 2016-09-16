@@ -8,7 +8,7 @@ var transporter = nodemailer.createTransport('smtps://animalwelfarewebsite%40gma
 var mailOptions = {
     // to: 'admin@awscape.org.za', // list of receivers
     // to: 'robertsonpsd@gmail.com', // list of receivers
-    to: 'tyron.burkhardt.za@gmail.com', // list of receivers
+    to: 'michael.burkhardt.za@gmail.com', // list of receivers
 
     subject: 'Contact from website', // Subject line
     text: 'Sent from: ' + req.body.InputEmail + '\n' + 'Name: ' + req.body.InputName + '\n'+ '\n' + 'Message:\n ' + req.body.InputMessage, // plaintext body
