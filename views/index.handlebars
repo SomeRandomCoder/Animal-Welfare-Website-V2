@@ -1,24 +1,29 @@
 
     <div class="container">
 <hr>
-<div class="w3-content" style="max-width:800px;position:relative">
+  <div class="page-header" style="height:50px;text-align: center;">
+    <h3>ANIMAL WELFARE SOCIETY OF SOUTH AFRICA</h3>
+  </div>
+<!-- style="max-width:800px;position:relative" -->
+<div class="sliderContainer img-responsive">
 
-    <img class="img" src="/Images/Slider/Cat.jpg" style="width:100%">
-    <img class="img" src="/Images/Slider/doginBlanket.jpg" style="width:100%">
-    <img class="img" src="/Images/Slider/dogOnBeach.jpg" style="width:100%">
-    <img class="img" src="http://awscape.org.za/wp-content/uploads/2014/03/c3.gif" style="width:100%">
-    <img class="img" src="http://awscape.org.za/wp-content/uploads/2014/03/c6.gif" style="width:100%">
-    <img class="img" src="http://awscape.org.za/wp-content/uploads/2014/03/c5.gif" style="width:100%">
+<div class="sliderDiv img-responsive" >
+
+    <img class="sliderimg img-responsive" src="/Images/Slider/Cat_Easy-Resize.com.jpg" style="height:300px;width:850px;" >
+    <img class="sliderimg img-responsive" src="/Images/Slider/doginBlanket_Easy-Resize.com.jpg"  style="height:300px;width:850px;" >
 
 
-</div>
+  </div>
+
+ </div>
+
 <script>
     var slideIndex = 0;
     carousel();
 
     function carousel() {
         var i;
-        var x = document.getElementsByClassName("img");
+        var x = document.getElementsByClassName("sliderimg");
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
@@ -41,7 +46,7 @@
 
     function showDivs(n) {
         var i;
-        var x = document.getElementsByClassName("mySlides");
+        var x = document.getElementsByClassName("sliderimg");
         if (n > x.length) {
             slideIndex = 1
         }
@@ -71,6 +76,11 @@
             </div>
 
             <div class="col-md-5 pull-right">
+              <h3>Contact us:</h3>
+              <h5>
+              <p>If you would like to contact us via phonecall, please visit the <a href="contactUs">Contact Us</a> page and find our number there.</p>
+              <p>If you would like to send us and email for an annonymous tip of, please fill out the email form on the <a href="/inspectors">Inspectors page</a></p>
+            </h5>
             <h3>Our Banking Details</h3>
 
             <p><h5>

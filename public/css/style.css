@@ -13,26 +13,6 @@ height: 100px;
 width: 100%;
 }
 
-/*NAV BAR STYLING*/
-/*END OF NAV BAR STYLING*/
-
-
-/*.row-list{
-  width:85%;
-
-  border: 2px double black;
-  display: inline-block;
-  list-style-type: none;
-  padding-left:25%;
-}
-
-.db-List{
-  width: 85%;
-    height: 55px;
-    border: 1px solid black;
-    text-decoration: none;
-}*/
-
 .slideShowDiv{
   height: 200px;
   width: 400px;
@@ -101,4 +81,30 @@ width: 100%;
 }
 .row{
   display: inline-block;
+}
+
+.sliderContainer{
+  width:1150px;
+  height: 500px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+
+}
+
+.sliderDiv{
+  width:850px;
+  height: 300px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  
+}
+
+.page-header{
+  height:50px;
+  text-align: center;
+  /*border-style: solid;
+  border-color: black;
+  border-width: 2px;*/
 }

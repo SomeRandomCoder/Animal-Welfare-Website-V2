@@ -144,6 +144,7 @@ app.get("/donations", function(req, res) {
 app.get("/inspectors", function(req, res) {
   res.render("inspectors",{admin: req.session.admin, user: req.session.username});
 });
+app.post("/inspectors", mailer.contactInspectors)
 
 app.get("/events", function(req, res) {
   res.render("events",{admin: req.session.admin, user: req.session.username});
@@ -161,7 +162,7 @@ app.get("/GivenGain", function(req, res) {
 app.get("/contactUs", function(req, res) {
   res.render("contactUs",{admin: req.session.admin, user: req.session.username});
 });
-app.post('/contactus', mailer.send);
+app.post('/contactus', mailer.contactUs);
 
 
 
