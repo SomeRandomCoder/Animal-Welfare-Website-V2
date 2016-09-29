@@ -72,6 +72,7 @@ app.use(function(req,res,next){
               ||req.path.split("/")[1] === "login"
               ||req.path.split("/")[1] === "logout"
               ||req.path.split("/")[1] === "allAnimals"
+              ||req.path.split("/")[1] === "directions"
               || req.path === "/";
 
   var adminPath = req.path.split("/")[2] === "add"
@@ -158,11 +159,16 @@ app.get("/GivenGain", function(req, res) {
   res.render("GivenGain",{admin: req.session.admin, user: req.session.username});
 });
 
+app.get("/directions", function(req,res){
+  res.render("directions",{admin: req.session.admin, user: req.session.username});
+})
 
 app.get("/contactUs", function(req, res) {
   res.render("contactUs",{admin: req.session.admin, user: req.session.username});
 });
 app.post('/contactus', mailer.contactUs);
+
+
 
 
 
