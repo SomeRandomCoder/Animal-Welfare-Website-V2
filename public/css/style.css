@@ -83,6 +83,8 @@ width: 100%;
   display: inline-block;
 }
 
+
+
 .sliderContainer{
   width:1150px;
   height: 500px;
@@ -90,15 +92,17 @@ width: 100%;
   border-color: black;
   border-width: 2px;
 
+
 }
 
 .sliderDiv{
   width:850px;
   height: 300px;
+
   border-style: solid;
   border-color: black;
   border-width: 2px;
-  
+  margin: 0 auto;
 }
 
 .page-header{
@@ -107,4 +111,7 @@ width: 100%;
   /*border-style: solid;
   border-color: black;
   border-width: 2px;*/
+}
+footer{
+    margin: 0 auto;
 }
