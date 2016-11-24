@@ -1,7 +1,6 @@
 var fs = require('fs');
 var handlebars = require('express-handlebars');
 var express = require('express');
-var app = express();
 var mysql = require('mysql');
 var myConnection = require("express-myconnection");
 var bodyParser = require('body-parser');
@@ -9,11 +8,13 @@ var session = require("express-session");
 var bcrypt=require("bcryptjs");
 var multer = require('multer');
 var flash=require('express-flash');
-
+// var co = require("co");
+var app = express();
 
 
 var adoptions = require('./functions/adoptions');
 var mailer = require('./functions/mailer');
+var eventCRUD = require('./functions/eventCRUD');
 
 var login = require("./functions/login");
 
@@ -34,7 +35,7 @@ var dbOptions = {
   database: 'animalWelfare'
 };
 
-// app.use(myConnection(mysql, dbOptions, "single"));
+app.use(myConnection(mysql, dbOptions, "single"));
 
 // var connection = mysql.createConnection(dbOptions);
 
@@ -73,6 +74,8 @@ app.use(function(req,res,next){
               ||req.path.split("/")[1] === "logout"
               ||req.path.split("/")[1] === "allAnimals"
               ||req.path.split("/")[1] === "directions"
+              ||req.path.split("/")[1] === "addEvent"
+              ||req.path.split("/")[1] === "Event"
               || req.path === "/";
 
   var adminPath = req.path.split("/")[2] === "add"
@@ -138,10 +141,6 @@ app.get("/allAnimals", function(req, res) {
 });
 app.get("/allAnimals", adoptions.showAll);
 
-
-app.get("/donations", function(req, res) {
-  res.render("donations",{admin: req.session.admin, user: req.session.username});
-});
 app.get("/inspectors", function(req, res) {
   res.render("inspectors",{admin: req.session.admin, user: req.session.username});
 });
@@ -163,11 +162,30 @@ app.get("/directions", function(req,res){
   res.render("directions",{admin: req.session.admin, user: req.session.username});
 })
 
+app.get("/addEvent", function(req,res){
+  res.render("addEvent",{admin: req.session.admin, user: req.session.username});
+})
+
+app.get("/Event", function(req,res){
+  res.render("Event",{admin: req.session.admin, user: req.session.username});
+})
+
+
 app.get("/contactUs", function(req, res) {
   res.render("contactUs",{admin: req.session.admin, user: req.session.username});
 });
 app.post('/contactus', mailer.contactUs);
 
+app.get('/Event', eventCRUD.showAdd);
+app.post('/addEvent', eventCRUD.add);
+app.get('/Event/delete/:id', eventCRUD.delete);
+app.get('/Event/:id', eventCRUD.get);
+app.get("/Event", eventCRUD.showAll);
+
+
+// app.post('/Event/update/:id', eventCRUD.update);
+// app.get("/Event/search/:searchVal", eventCRUD.search);
+// app.post("/Event/search/", eventCRUD.search);
 
 
 

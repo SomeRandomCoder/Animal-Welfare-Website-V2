@@ -7,6 +7,7 @@ var myConnection = require('express-myconnection');
 var createDB = require('./createDB');
 var users = String(fs.readFileSync('./sql/users.sql'));
 var admin = String(fs.readFileSync('./sql/admin.sql'));
+var events = String(fs.readFileSync('./sql/events.sql'));
 var adoptions = String(fs.readFileSync('./sql/adoptions.sql'));
 
 createDB.create();
@@ -27,11 +28,14 @@ var data = {username: 'admin',
 
 connection.query(users, [], function(err, rows){
 if(err) console.log(err);
+connection.query(events, [], function(err, rows){
+if(err) console.log(err);
 connection.query(adoptions,[], function(err, rows){
 if(err) console.log(err);
 connection.query(admin, [data], function(err, rows ){     //COMMENT THESE THREE LINES OUT IF YOU INTEND TO USE IT IN APP.JS
   if(err) console.log(err);                               //OTHERWISE IF YOU RUN THE FILE FROM HERE IT CAN STAY :)
 });                                                       //ITS JUST INSERTING THE ADMIN USER TO THE TABLE.
+});
 });
 });
 });

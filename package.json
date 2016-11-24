@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.13.4",
@@ -16,7 +17,11 @@
     "multer": "^1.2.0",
     "mysql": "^2.11.1",
     "nodemailer": "^2.6.0",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "co": "~4.6.0",
+    "font-awesome": "^4.6.3"	
   },
   "devDependencies": {},
   "scripts": {

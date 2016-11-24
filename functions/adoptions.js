@@ -1,61 +1,75 @@
-var mysql=require('mysql');
+var mysql = require('mysql');
 var fs = require('fs');
 var dbOptions = {
-  host: "127.0.0.1",
-  user: 'root',
-  password: "mxmaolqk",
-  // password: '5550121a',
-  port: 3306,
-  database: 'animalWelfare'
+    host: "127.0.0.1",
+    user: 'root',
+    password: "mxmaolqk",
+    // password: '5550121a',
+    port: 3306,
+    database: 'animalWelfare'
 };
 
 var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
     // var file = req.body.img;
-    var path = (req.file.path).replace("public/" , '');
+    var path = (req.file.path).replace("public/", '');
     // var path = (req.file.path).replace("public\\" , '');
     var data = {
-      animal: req.body.animal,
-      name: req.body.name,
-      age: req.body.age,
-      gender: req.body.gender,
-      bio: req.body.bio,
-      image: path
+        animal: req.body.animal,
+        name: req.body.name,
+        age: req.body.age,
+        gender: req.body.gender,
+        bio: req.body.bio,
+        image: path
     };
     connection.query('INSERT INTO `adoptions` SET ?', [data], function(err, rows) {
-      if(err) console.log(err);
-      res.redirect('/adoptions');
+        if (err) console.log(err);
+        res.redirect('/adoptions');
     });
 
 };
+
 exports.showCat = function(req, res) {
-connection.query('SELECT * FROM `adoptions` WHERE animal = "cat"', [], function(err, results){
-  // console.log(results);
-return res.render('adoptCat', {data: results,admin: req.session.admin, user: req.session.username});
-});
+    connection.query('SELECT * FROM `adoptions` WHERE animal = "cat"', [], function(err, results) {
+        // console.log(results);
+        return res.render('adoptCat', {
+            data: results,
+            admin: req.session.admin,
+            user: req.session.username
+        });
+    });
 };
+
 exports.showDog = function(req, res) {
-connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results){
-return res.render('adoptDog', {data: results, admin:req.session.admin, user: req.session.username});
-});
+    connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results) {
+        return res.render('adoptDog', {
+            data: results,
+            admin: req.session.admin,
+            user: req.session.username
+        });
+    });
 };
 
 
-exports.showAll=function(req,res){
-  connection.query("SELECT * FROM `adoptions`",[],function(err,result){
-    res.render('allAnimals', {data: result, admin:req.session.admin, user: req.session.username});
-  });
+exports.showAll = function(req, res) {
+    connection.query("SELECT * FROM `adoptions`", [], function(err, result) {
+        res.render('allAnimals', {
+            data: result,
+            admin: req.session.admin,
+            user: req.session.username
+        });
+    });
 };
-exports.remove = function(req, res){
-  var id = req.params.id;
-  // console.log(id);
-  connection.query('SELECT image FROM adoptions where id = ?', id, function(err, image){
-// console.log(image[0].image);
-fs.unlink('./public/' + image[0].image);
-  connection.query('DELETE FROM adoptions WHERE id= ?', id, function(err, rows){
-    if(err) console.log(err);
-    res.redirect('/allAnimals');
-  });
-  });
+exports.remove = function(req, res) {
+    var id = req.params.id;
+    // console.log(id);
+    connection.query('SELECT image FROM adoptions where id = ?', id, function(err, image) {
+        // console.log(image[0].image);
+        fs.unlink('./public/' + image[0].image);
+        connection.query('DELETE FROM adoptions WHERE id= ?', id, function(err, rows) {
+            if (err) console.log(err);
+            res.redirect('/allAnimals');
+        });
+    });
 };

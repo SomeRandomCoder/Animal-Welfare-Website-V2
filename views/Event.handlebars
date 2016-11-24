@@ -1,0 +1,15 @@
+<ul  id="productsSearch" class="row-list">
+<!-- <ul id="productsSearch"> -->
+<li class="col-md-4 head"><b>Title</b></li>
+<li class="col-md-4 head"><b>Description</b></li>
+<a href="/Event/addEvent" class="btn btn-primary col-md-4 "><b>Add Product</b></a>
+
+
+      {{#events}}
+
+        <li class="col-md-4 db-List"> {{Title}}</li>
+        <li class="col-md-4 db-List">{{Description}}</li>
+        <a href="/products/editProduct/{{id}}" class="btn btn-primary col-md-2 ">Edit</a>
+        <a href="/products/delete/{{id}}" class="btn btn-primary col-md-2 ">Delete</a>
+      {{/events}}
+</ul>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-
+  <link rel="shortcut icon" type="image/x-icon" href="../Images/AWSLogo.jpg" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,94 +14,24 @@
     <link href="/css/New bootstrap/1-col-portfolio.css" rel="stylesheet">
 
     <title>Animal Welfare Society </title>
-
-    <!-- Bootstrap Core CSS -->
-
-
-    <!-- Custom CSS -->
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
-<style>
-body{margin:0;}
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
-  background-color: #333;
-
-}
-
-ul.topnav li {float: left;
-text-align: center;
-}
-
-ul.topnav li a {
-  display: inline-block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-ul.topnav li a:hover {background-color: #555;}
-
-ul.topnav li.icon {display: none;}
-
-@media screen and (max-width:680px) {
-  ul.topnav li:not(:first-child) {display: none;}
-  ul.topnav li.icon {
-    float: right;
-    display: inline-block;
-  }
-}
-
-@media screen and (max-width:680px) {
-  ul.topnav.responsive {position: relative;}
-  ul.topnav.responsive li.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  ul.topnav.responsive li {
-    float: none;
-    display: inline;
-  }
-  ul.topnav.responsive li a {
-    display: block;
-    text-align: center;
-  }
-}
-
-</style>
-
 <body onload="initialize()">
-
-
-    <ul class="topnav navbar-fixed-top" id="myTopnav" >
+<div class="wrapper"></div>
+    <ul class="topnav navbar" id="myTopnav" >
       {{#unless user}}
       {{#unless admin}}
       <li><a href="/">Home</a></li>
       <li><a href="/aboutUs">About Us</a></li>
-      <li><a href="/events">News & Events</a></li>
+      <li><a href="/events">News</a></li>
+      <li><a href="/Event">Events</a></li>
       <li><a href="/adoptions">Adoptions</a></li>
       <li><a href="/lostAndFound">Lost & Found</a></li>
-      <li><a href="/donations">Donations</a></li>
-      <li><a href="/GivenGain">GivenGain</a></li>
+      <li><a href="/GivenGain">Donations & GivenGain</a></li>
       <li><a href="/inspectors">Inspectors</a></li>
-      <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/directions">Get Directions</a></li>
+      <li><a href="/contactUs">Contact Us</a></li>
+      <li><a href="/addEvent">Add Event</a></li>
       <li><a href="/login">Login</a></li>
       {{/unless}}
       {{/unless}}
@@ -109,15 +39,14 @@ ul.topnav li.icon {display: none;}
       {{#if admin}}
       <li><a href="/">Home</a></li>
       <li><a href="/aboutUs">About Us</a></li>
-      <li><a href="/events">News & Events</a></li>
+      <li><a href="/events">News </a></li>
       <li><a href="/adoptions">Adoptions</a></li>
       <li><a href="/lostAndFound">Lost & Found</a></li>
-      <li><a href="/donations">Donations</a></li>
-      <li><a href="/GivenGain">GivenGain</a></li>
+      <li><a href="/GivenGain">Donations & GivenGain</a></li>
       <li><a href="/inspectors">Inspectors</a></li>
-      <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/directions">Get Directions</a></li>
       <li><a href="/allAnimals">All Animals</a></li>
+      <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/logout">Logout</a></li>
 
       {{/if}}
@@ -137,57 +66,16 @@ function myFunction() {
     }
 }
 </script>
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script href="js/bootstrap.min.js"></script>
 <hr>
 
 
 {{{body}}}
-<hr>
-
-<!-- <div class="container">
-  <div class="col-lg-12">
-    <p>Created By:</p>
-    <p><a href="https://github.com/SomeRandomCoder">Tyron Burkhardt</a></p>
-    <p><a href="https://github.com/danger12001">Paul Robertson</a></p>
-
-  </div>
-</div> -->
-
-
-
-
 
 
 
 </body>
-<footer>
-<div class="row">
 
-    <div class="col-md-10">
-
-
-                <div class="column text-center">
-                    <i class="fi-social-facebook"></i>
-                    <p><b>Please be kind enough to share our Facebook page</b></p>
-                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2Fawsphilippi%2F&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowTransparency="true"></iframe>
-
-                    <br>
-                </div>
-
-            <br>
-    </div>
-
-    <div class="container">
-      <div class="col-lg-12">
-
-        <!-- <p>Created By:</p>
-        <p><a href="https://github.com/SomeRandomCoder">Tyron Burkhardt</a></p>
-        <p><a href="https://github.com/danger12001">Paul Robertson</a></p> -->
-
-      </div>
-    </div>
-</div>
-</footer>
 </html>

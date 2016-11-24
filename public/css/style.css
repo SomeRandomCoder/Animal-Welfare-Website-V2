@@ -1,3 +1,102 @@
+.wrapper {
+  background-image: url(../Images/NavBarImage.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100px;
+
+}
+
+.post{
+background-color: #ffffff;
+padding: 5px;
+border: 1px solid #cccccc;
+margin-bottom: 5px;
+}
+
+.container{
+  background-color: white;
+  border-radius: 10px;
+}
+
+#BankDetails ul li {
+  text-decoration: none;
+  list-style:none;
+}
+
+body{
+  /*background-color: aqua;*/
+  background: linear-gradient(to right, #66b3ff, #80bfff);
+}
+
+body{margin:0;}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background-color: #3333ff;
+
+}
+
+ul.topnav li {float: left;
+text-align: center;
+}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #555;}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Vid {
 height: 192px;
 width: 215px;
