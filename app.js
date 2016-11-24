@@ -60,7 +60,7 @@ app.use(function(req,res,next){
   var admin = req.session.admin && req.session.username,
       user =  req.session.username,
       userInSession = req.session.username;
-  var generalPath = req.path.split("/")[1] === "events"
+  var generalPath = req.path.split("/")[1] === "news"
               ||req.path.split("/")[1] === "aboutUs"
               || req.path.split("/")[1] === "adoptions"
               || req.path.split("/")[1] === "donations"
@@ -74,16 +74,20 @@ app.use(function(req,res,next){
               ||req.path.split("/")[1] === "logout"
               ||req.path.split("/")[1] === "allAnimals"
               ||req.path.split("/")[1] === "directions"
-              ||req.path.split("/")[1] === "addEvent"
               ||req.path.split("/")[1] === "Event"
+              || req.path.split("/")[1] === "addEvent"
+
               || req.path === "/";
 
   var adminPath = req.path.split("/")[2] === "add"
+
+                || req.path.split("/")[1] === "addEvent"
+
                 || req.path.split("/")[1] === "allAnimals";
 
 // console.log("hello " + req.session.username);
   if(!admin && adminPath){
-    res.redirect('/adoptions');
+    res.redirect('/');
   }
   else
   if (!user && generalPath) {
@@ -146,8 +150,8 @@ app.get("/inspectors", function(req, res) {
 });
 app.post("/inspectors", mailer.contactInspectors)
 
-app.get("/events", function(req, res) {
-  res.render("events",{admin: req.session.admin, user: req.session.username});
+app.get("/news", function(req, res) {
+  res.render("news",{admin: req.session.admin, user: req.session.username});
 });
 
 app.get("/lostandfound", function(req, res) {
@@ -166,9 +170,32 @@ app.get("/addEvent", function(req,res){
   res.render("addEvent",{admin: req.session.admin, user: req.session.username});
 })
 
-app.get("/Event", function(req,res){
-  res.render("Event",{admin: req.session.admin, user: req.session.username});
-})
+
+
+app.get('/Event', function(req, res, next) {
+    req.getConnection(function(err, connection) {
+      connection = mysql.createConnection(dbOptions);
+        // connection = mysql.createConnection(dbOptions);
+        if (err) return next(err);
+        connection.query("SELECT * FROM events", [],function(err, data) {
+            if (err) return next(err);
+            if(req.session.admin){
+              res.render("Event", {
+                data: data,
+                isAdmin: req.session.admin && req.session.username,
+                  isUser: !req.session.admin && req.session.username
+            });
+          }
+          else{
+            res.render("events",{
+              data: data
+            });
+          }
+            // connection.end();
+        });
+    });
+});
+
 
 
 app.get("/contactUs", function(req, res) {
@@ -176,17 +203,9 @@ app.get("/contactUs", function(req, res) {
 });
 app.post('/contactus', mailer.contactUs);
 
-app.get('/Event', eventCRUD.showAdd);
-app.post('/addEvent', eventCRUD.add);
-app.get('/Event/delete/:id', eventCRUD.delete);
-app.get('/Event/:id', eventCRUD.get);
-app.get("/Event", eventCRUD.showAll);
-
-
-// app.post('/Event/update/:id', eventCRUD.update);
-// app.get("/Event/search/:searchVal", eventCRUD.search);
-// app.post("/Event/search/", eventCRUD.search);
-
+app.get('/Event', eventCRUD.showAll);
+app.post('/Event/addEvent', eventCRUD.add);
+app.get('/Event/remove/:id', eventCRUD.remove);
 
 
 

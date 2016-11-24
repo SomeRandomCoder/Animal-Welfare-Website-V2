@@ -1,15 +1,25 @@
-<ul  id="productsSearch" class="row-list">
-<!-- <ul id="productsSearch"> -->
-<li class="col-md-4 head"><b>Title</b></li>
-<li class="col-md-4 head"><b>Description</b></li>
-<a href="/Event/addEvent" class="btn btn-primary col-md-4 "><b>Add Product</b></a>
+<div class="container">
+
+<div class="container-fluid">
+    <h1 class="page-header">Events</h1>
+    <a href="/addEvent" class="btn btn-primary "><b>Add Event</b></a>
+    <div class="img-responsive">
 
 
-      {{#events}}
+        {{#data}}
+<div id="postContainer">
 
-        <li class="col-md-4 db-List"> {{Title}}</li>
-        <li class="col-md-4 db-List">{{Description}}</li>
-        <a href="/products/editProduct/{{id}}" class="btn btn-primary col-md-2 ">Edit</a>
-        <a href="/products/delete/{{id}}" class="btn btn-primary col-md-2 ">Delete</a>
-      {{/events}}
-</ul>
+    <div class="post">
+        <h3><label>Title: {{title}}</label></h3>
+        <br>
+        <textbox> Description: {{description}}</textbox>
+
+      <div id="removeBtn">
+        <a href="/Event/remove/{{id}}" class="btn btn-primary"><b>Remove</b></a>
+      </div>
+    </div>
+</div>
+    {{/data}}
+  </div>
+ </div>
+</div>

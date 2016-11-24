@@ -23,23 +23,25 @@
       {{#unless admin}}
       <li><a href="/">Home</a></li>
       <li><a href="/aboutUs">About Us</a></li>
-      <li><a href="/events">News</a></li>
+      <li><a href="/news">News</a></li>
       <li><a href="/Event">Events</a></li>
       <li><a href="/adoptions">Adoptions</a></li>
       <li><a href="/lostAndFound">Lost & Found</a></li>
       <li><a href="/GivenGain">Donations & GivenGain</a></li>
       <li><a href="/inspectors">Inspectors</a></li>
+
       <li><a href="/directions">Get Directions</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
-      <li><a href="/addEvent">Add Event</a></li>
       <li><a href="/login">Login</a></li>
       {{/unless}}
       {{/unless}}
 
       {{#if admin}}
+      {{#if user}}
       <li><a href="/">Home</a></li>
-      <li><a href="/aboutUs">About Us</a></li>
-      <li><a href="/events">News </a></li>
+      <!-- <li><a href="/aboutUs">About Us</a></li> -->
+      <li><a href="/news">News </a></li>
+      <li><a href="/Event">Events</a></li>
       <li><a href="/adoptions">Adoptions</a></li>
       <li><a href="/lostAndFound">Lost & Found</a></li>
       <li><a href="/GivenGain">Donations & GivenGain</a></li>
@@ -48,7 +50,7 @@
       <li><a href="/allAnimals">All Animals</a></li>
       <li><a href="/contactUs">Contact Us</a></li>
       <li><a href="/logout">Logout</a></li>
-
+      {{/if}}
       {{/if}}
   <li class="icon">
     <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
