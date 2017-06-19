@@ -150,7 +150,7 @@ app.get("/adoptions/add", function(req, res) {
 
 
 
-"string".replace('/', 'ForwardSlash');
+
 //app.post('/adoptions/add', uploads.single('img'), adoptions.add);
 app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,adoptions.add);
 
@@ -168,7 +168,9 @@ app.post('/allAnimals/remove/:id', adoptions.remove);
  app.post("/allAnimals/search/", adoptions.allAnimalsRefCode);
 
 
-
+ // app.get("/Events", function(req, res) {
+ //   res.render("Events",{admin: req.session.admin, user: req.session.username});
+ // });
   app.get('/Events', eventCRUD.showAll);
   app.post('/Events/addEvent', eventCRUD.add);
   app.post('/Events/remove/:id', eventCRUD.remove);
