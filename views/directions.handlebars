@@ -1,14 +1,14 @@
 
   <h1 class="page-header">Get Directions </h1>
 
-  <div class="row"></div>
+  <div class="row">
     <button type="submit" onClick="Reload()" id="btnRefresh" class="glyphicon glyphicon-repeat btn btn-primary pull-right" ></button>
   <div class="col -md- 12">
     <div class= "col-md-3"></div>
     <div class="col-md-6 ">
       <div id="map_canvas" class="img-responsive" style="width:710px; height:300px"></div>
       <form action="/routebeschrijving" onsubmit="calcRoute();return false;" id="routeForm">
-        <h4>Please enter your location (ie Address) in the input box below to get directions from your location to the Animal Welfare <strong>(Please Note : input is case sensitive)</strong> </h4>
+        <p>Please enter your location (ie Address) in the input box below to get directions from your location to the Animal Welfare <strong>(Please Note : input is case sensitive)</strong> </p>
         <input type="text" style='width:50%' id="routeStart" class="form-control pull-left" placeholder="Please Enter your Area here">
 
 
@@ -21,15 +21,9 @@
 
     </div>
   </div>
-
-<hr>
-<div>
-  <div class="col-md-7 pull-right">
-    <p>Created By:</p>
-    <p><a href="https://github.com/SomeRandomCoder">Tyron Burkhardt</a><br> & <br><a href="https://github.com/danger12001">Paul Robertson</a></p>
-
   </div>
-</div>
+
+
 
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
