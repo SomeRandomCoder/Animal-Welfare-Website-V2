@@ -96,19 +96,18 @@ app.use(function(req,res,next){
                || req.path.split("/")[1] === "allAnimals";
 
 // console.log("hello " + req.session.username);
-  if(!admin && adminPath){
-    res.redirect('/');
-  }
-  else
-  if (!user && generalPath) {
-
+  if(!admin && adminPath)
+    {
+     res.redirect('/');
+    }
+  else if (!user && generalPath)
+   {
+     next();
+   }
+  else if (user && generalPath)
+  {
     next();
-}
-else
-if (user && generalPath) {
-
-  next();
-}
+  }
 
 });
 
