@@ -1,14 +1,15 @@
 <div class="container">
 <form action="/Events/addEvent" method="POST">
+	<div class="group col-sm-5 col-md-5 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
 	<h1>Add Event</h1>
 	<div class="">
     <h4>Title</h4>
-    <input type="text" name="Title" value="{{data.Title}}" required>
+    <input type="text" class="form-control" name="Title" value="{{data.Title}}" required>
 	</div>
 
   <div class="">
     <h4>Description</h4>
-    <input type="text" name="Description" value="{{data.Description}}" required>
+    <input type="text" class="form-control" name="Description" value="{{data.Description}}" required>
 	</div>
 
 
@@ -16,8 +17,14 @@
 	<hr>
 	<input
 		<button type ="submit" class="btn btn-primary"/>
-
+</div>
 </form>
+
+
+
+
+
+
 <hr>
 <div>
 	<div class="col-md-7 pull-right">

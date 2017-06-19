@@ -81,7 +81,9 @@
 
                         <div class="spacer"></div>
 
-                        <a href="/adoptions/add" class="btn btn-primary col-md-12  center">Add an animal to adoptions</a>
+                        <!-- <a class="btn-primary col-md-12  center" href="/adoptions/add">Add an animal to adoptions</a> -->
+                        <a class="btn btn-primary" style="width: 100%" href="/adoptions/add">Add an animal to adoptions</a>
+
                       </div>
                   {{/if}}
             </div>
@@ -101,9 +103,14 @@
               <h3>Adoption Form</h3>
                       <p>Once you have decided on which animal(s) you would like to adopt, please download the form below and fill it out or email us at admin@awscape.org.za </p>
               <div class="col-md-1"></div>
-                <div class="col-md-10">
+                <div class="col-md-12">
 
-                  <a class="btn btn-primary glyphicon glyphicon-floppy-save col-md-12 "    href="#"> Download </a>
+                    <!-- <button type="submit" id="downloadForm" class="btn btn-primary glyphicon glyphicon-floppy-save col-md-12">Download</button> -->
+
+
+
+                  <a href="/PDF/donations.pdf" download class="btn btn-primary glyphicon glyphicon-floppy-save col-md-12" href="#"> Download </a>
+                  <div id="mydiv"></div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -131,10 +138,19 @@
   </div>
 </div>
 
+<script>
+$('#downloadForm').click( function() {
+    $('#mydiv').append("<p>No Form to be downloaded, please use email service in the meantime.</p>");
+  $('#downloadForm').prop('disabled',true); } );
+
+</script>
+
 <style>
     .spacer {
         width: 10px;
         height: auto;
         display: inline-block;
     }
+
+
 </style>

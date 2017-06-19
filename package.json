@@ -1,5 +1,5 @@
 {
-  "name": "Animal-Welfare-Website",
+  "name": "animal-welfare-website-v2",
   "version": "1.2.0",
   "description": "",
   "main": "app.js",
@@ -26,13 +26,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SomeRandomCoder/Animal-Welfare.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SomeRandomCoder/Animal-Welfare/issues"
-  },
-  "homepage": "https://github.com/SomeRandomCoder/Animal-Welfare#readme"
-}
+     "type": "git",
+     "url": "git+https://github.com/SomeRandomCoder/Animal-Welfare-Website-V2.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+     "url": "https://github.com/SomeRandomCoder/Animal-Welfare-Website-V2/issues"
+   },
+   "homepage": "https://github.com/SomeRandomCoder/Animal-Welfare-Website-V2#readme"
+ }

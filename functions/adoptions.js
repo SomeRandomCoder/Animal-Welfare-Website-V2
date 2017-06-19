@@ -109,7 +109,7 @@ exports.allAnimalsRefCode = function(req, res, next){
      var searchVals =  '%'+req.params.searchVal+ '%';
     console.log("Search Value value: " + searchVals + " from searchQuery Function");
     console.log("---------------------------------------------------");
-    connection.query('SELECT * FROM adoptions WHERE adoptions.refcode LIKE ?', [searchVals], function(err, result){
+    connection.query('SELECT * FROM adoptions WHERE adoptions.name LIKE ?', [searchVals], function(err, result){
       if(err)
       return console.log(err);
       res.render('allAnimals',{

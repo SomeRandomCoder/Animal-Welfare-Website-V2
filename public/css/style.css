@@ -7,6 +7,10 @@
 
 }
 
+button.downloadForm.disabled{
+  opacity: 0.3;
+}
+
 /*#myTopnav{
 
     list-style-type: none;
@@ -208,25 +212,26 @@
 }
 
 .col-lg-3:nth-child(4n+1){
-    clear: left;
+    /*clear: left;*/
 }
 
 .well{
   /*margin-top:10px;*/
-  min-width: 250px;
+  min-width: 240px;
+  padding-right: 10px;
 
 }
 .thumbnail{
-  min-height: 580px;
-  max-height: 580px;
-  min-width: 230px;
+  min-height: 560px;
+  max-height: 560px;
+  min-width: 220px;
 
 }
 .thumbnail img{
   min-height:300px;
   max-height:300px;
-  padding:10px;
-  width: 100%;
+  padding:5px;
+  /*width: 100%;*/
   object-fit: contain;
 }
 
@@ -363,8 +368,11 @@ ul.topnav li.icon {display: none;}
 }
 .row{
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 15px;
+
 }
+
+
 
 .sliderContainer{
   width:1150px;

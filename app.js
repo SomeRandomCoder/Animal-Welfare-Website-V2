@@ -166,7 +166,7 @@ app.post("/adoptDog/search/", adoptions.searchDog);
 app.get("/allAnimals", adoptions.showAll);
 app.post('/allAnimals/remove/:id', adoptions.remove);
   app.get("/allAnimals/search/:searchVal", adoptions.allAnimalsRefCode);
-  app.post("/allAnimals/search/", adoptions.allAnimalsRefCode);
+ app.post("/allAnimals/search/", adoptions.allAnimalsRefCode);
 
 
 
