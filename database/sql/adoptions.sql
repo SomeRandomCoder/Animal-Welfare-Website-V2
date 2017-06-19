@@ -6,7 +6,9 @@ CREATE TABLE IF NOT EXISTS `adoptions` (
   `age` int(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `bio` varchar(250) NOT NULL,
+  `size` VARCHAR(200) NOT NULL,
   `image` text,
+  `refcode` varchar(200) NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

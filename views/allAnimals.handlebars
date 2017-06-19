@@ -1,10 +1,74 @@
-<div class="container">
+<div class="container" id="allAnimals" >
     <h1 class="page-header">Animals up for Adoption</h1>
+<div class="col-md-12">
+    <form  id="myForm" action="/allAnimals/search" method="POST" >
+  			<div class="col-md-12">
+  				 <input id="searchBar" class="pull-right" type="text"  name="searchVal" placeholder="Search.." >
+  			</div>
+  	  </form>
+    </div>
 
-    <div class='row'>
+    <div class='row' id="allAnimals">
 
     {{#data}}
-    <div class="col-md-4">
+    <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12 thumb">
+        <form action='/allAnimals/remove/{{id}}' method='POST'>
+
+          <div class="well">
+            <button type="submit" id="btnremove" class="glyphicon glyphicon-remove btn btn-primary pull-right" ></button>
+
+          <div class="thumbnail">
+
+            <div id="imageContainerDiv">
+              <img class="adoptionsimages " id="image" src="{{image}}"  alt="...">
+            </div>
+
+            <div class="caption">
+              <h3>{{name}}</h3>
+              <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+              <p>Size: {{size}}</p>
+              <p>Bio: {{bio}}</p>
+              <p>Reference Code : {{refcode}}</p>
+
+            </div>
+          </div>
+        </div>
+              </form>
+
+        </div>
+    {{/data}}
+  </div>
+
+
+    <!-- {{#data}}
+    <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-3" >
+        <form action='/allAnimals/remove/{{id}}' method='POST'>
+
+          <div class="well">
+            <button type="submit" id="btnremove" class="glyphicon glyphicon-remove btn btn-primary pull-right" ></button>
+
+          <div class="thumbnail">
+
+            <div id="imageContainerDiv">
+              <img class="adoptionsimages" id="image" src="{{image}}"  alt="...">
+            </div>
+
+            <div class="caption">
+              <h3>{{name}}</h3>
+              <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+              <p>Size: {{size}}</p>
+              <p>Bio: {{bio}}</p>
+              <p>Reference Code : {{refcode}}</p>
+
+            </div>
+          </div>
+        </div>
+          </form>
+    </div>
+    {{/data}} -->
+
+
+    <!-- <div class="col-md-4" >
         <form action='/allAnimals/remove/{{id}}' method='POST'>
           <img class="img-responsive img" src="{{image}}" alt="">
           <button class="col-md-12" type='submit'>REMOVE</button>
@@ -14,8 +78,8 @@
               <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
               <p>Bio: {{bio}}</p>
           </form>
-    </div>
-    {{/data}}
+    </div> -->
+
   </div>
   <hr>
   <div>
@@ -26,3 +90,18 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#searchBar').keyup(function(){
+      var searchVal= $("#searchBar").val();
+      if(searchVal.length === 5){
+      $.get("/allAnimals/search/" + searchVal, function(results){
+        console.log(searchVal);
+        $("#allAnimals").html(results)
+      });
+    }
+    })
+  })
+
+</script>

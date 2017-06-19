@@ -1,28 +1,56 @@
 <div class="container">
+  <div class="col-lg-12">
+      <h1 class="page-header">ADD ANIMAL TO ADOPTIONS</h1>
+  </div>
 
-  <h1>ADD ANIMAL TO ADOPTIONS</h1>
+  <!-- <h1>ADD ANIMAL TO ADOPTIONS</h1> -->
   <form action='/adoptions/add' method="POST" enctype="multipart/form-data">
 
     <div class="AddAnimal">
 
+      <!-- <div class="group col-sm-5 col-md-5 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+        <h2 class="form-signin-heading">Please enter details below</h2>
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Gender</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <label for="inputEmail" class="sr-only">Name</label>
+        <input type="text" id="inputEmail" name="name" class="form-control" placeholder="Name" required autofocus="">
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+
       <div class="col-md-12">
         <label>
           Name:
-        <input name='name' type="text" required/>
+        <input name='name' class="form-control" type="text" required/>
       </label>
       </div>
 
       <div class="col-md-12">
         <label>
         Gender:
-        <input name='gender' type="text" required/>
+        <input name='gender' class="form-control" type="text" required/>
       </label>
       </div>
 
       <div class="col-md-12">
         <label>
         Age:
-        <input name='age' type="text" required/>
+        <input name='age' class="form-control" type="text" required/>
       </label>
       </div>
 
@@ -30,26 +58,43 @@
         <label>
         ANIMAL:
 
-        <select name='animal' required>
+        <select name='animal' class="form-control" required>
           <option value="dog">Dog</option>
           <option value="cat">Cat</option>
         </select>
       </label>
       </div>
 
+
+
       <div class="col-md-12">
         <label>
-        Bio:
-        <input style='width: 90%' name='bio' type="text" required/>
+        Size:
+
+        <select name='size' class="form-control" required>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+
+        </select>
       </label>
       </div>
 
+
+
       <div class="col-md-12">
-        <input name='img' type="file" required/>
+        <label>
+        Bio:
+        <input style='width: 90%' name='bio' class="form-control" type="text" required/>
+      </label>
+      </div>
+
+      <div class="col-md-12" >
+        <input name='img' type="file" class="form-control"  required/>
       </div>
 
       <div class="col-md-12">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary"  type="submit">Submit</button>
       </div>
     </div>
   </form>

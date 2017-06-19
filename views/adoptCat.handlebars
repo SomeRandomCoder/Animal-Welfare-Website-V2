@@ -1,33 +1,100 @@
+<div class="container" id="adoptCat">
+	<h1 class="page-header">Cats Up for Adoption</h1>
+	<form  id="myForm" action="/adoptCat/search" method="POST" >
+	    <div class="col-md-3">
+	      <input type="radio" id="rb"  name="size" value="small" /> Small
+	    </div>
 
-    <div class="container">
+	    <div class="col-md-3">
+	      <input type="radio" id="rb" name="size" value="medium" /> Medium
+	    </div>
 
-        <!-- Page Header -->
-        <!-- <div class="row">
-            <div class="col-lg-12"> -->
-                <h1 class="page-header">Cats Up for Adoption
+	    <div class="col-md-3">
+	      <input type="radio" id="rb" name="size" value="large" /> Large
+	    </div>
 
-                </h1>
-            <!-- </div>
-        </div> -->
-        <div class='row'>
-        <!-- /.row -->
+
+
+		</form>
+		<button type="submit" onClick="Reload()" id="btnRefresh" class="glyphicon glyphicon-repeat btn btn-primary pull-right" ></button>
+
+
+		<div class="row">
+			{{#data}}
+	<div class="col-lg-3 col-md-5 col-sm-6 col-xs-12 thumb">
+		<div class="well">
+		<div class="thumbnail">
+
+				<img class="adoptionsimages" src="{{image}}" alt="...">
+
+			<div class="caption">
+				<h3>{{name}}</h3>
+				<p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+				<p>Size: {{size}}</p>
+				<p>Bio: {{bio}}</p>
+				<!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+			</div>
+		</div>
+	</div>
+	</div>
+	{{/data}}
+</div>
+
+	<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+		<!-- {{#unless admin}}
+		{{#unless admin}}
+
+		<div class='row'>
+				{{#data}}
+					<div class="col-md-4" >
+							<img class="img-responsive img" src="{{image}}" alt="">
+									<h3>{{name}}</h3>
+									<p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+									<p>Size: {{size}}</p>
+									<p>Bio: {{bio}}</p>
+
+					</div>
+				{{/data}}
+		</div>
+		{{/unless}}
+		{{/unless}}
+
+
+{{#if admin}}
+    <div class='row'>
         {{#data}}
-        <div class="col-md-4">
-              <!-- <div class="col-md-4 portfolio-item"> -->
-                <!-- <a href="#"> -->
-                    <img class="img-responsive img" src="{{image}}" alt="">
-                <!-- </a> -->
-                <h3>
-                  {{name}}
-                </h3>
-                <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
-                <p>Bio: {{bio}}</p>
-              <!-- </div> -->
-            </div>
-            {{/data}}
-          </div>
+	        <div class="col-md-4" >
+	            <img class="img-responsive img" src="{{image}}" alt="">
+	                <h3>{{name}}</h3>
+	                <p>Age: {{age}}</p><p>Gender: {{gender}}</p>
+	                <p>Size: {{size}}</p>
+	                <p>Bio: {{bio}}</p>
 
-          <hr>
+	                <p>Reference Code: {{refcode}}</p>
+
+	        </div>
+        {{/data}}
+    </div>
+ {{/if}}
+          <hr> -->
           <div>
             <div class="col-md-7 pull-right">
               <p>Created By:</p>
@@ -37,3 +104,23 @@
           </div>
 
     </div>
+
+		<script >
+	 	$(document).ready(function () {
+	 		$('#myForm input').on('change', function() {
+				var searchVal = $('input[name=size]:checked', '#myForm').val();
+			$.get("/adoptCat/search/" + searchVal, function(results){
+			  $("#adoptCat").html(results)
+
+		 });
+	 });
+ });
+
+ function Reload(){
+	 location.reload();
+ }
+
+
+
+
+	 </script>

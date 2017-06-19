@@ -3,17 +3,19 @@
   <h1 class="page-header">Get Directions </h1>
 
   <div class="row"></div>
+    <button type="submit" onClick="Reload()" id="btnRefresh" class="glyphicon glyphicon-repeat btn btn-primary pull-right" ></button>
   <div class="col -md- 12">
     <div class= "col-md-3"></div>
     <div class="col-md-6 ">
       <div id="map_canvas" class="img-responsive" style="width:710px; height:300px"></div>
       <form action="/routebeschrijving" onsubmit="calcRoute();return false;" id="routeForm">
         <h4>Please enter your location (ie Address) in the input box below to get directions from your location to the Animal Welfare <strong>(Please Note : input is case sensitive)</strong> </h4>
-        <input type="text" style='width: 79%' id="routeStart" placeholder="Please Enter your Area here">
+        <input type="text" style='width:50%' id="routeStart" class="form-control pull-left" placeholder="Please Enter your Area here">
 
 
+        <button type="submit" class="btn btn-primary glyphicon glyphicon-search" value="Get Directions"></button>
 
-        <input type="submit" value="Get Directions">
+        <input hidden type="submit" value="Get Directions">
       </form>
       <div id="directionsPanel"></div>
       <div class= "col-md-3"></div>
@@ -86,5 +88,10 @@
                 }
             });
         }
+
+        function Reload(){
+       	 location.reload();
+        }
+
 
     </script>

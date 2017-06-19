@@ -1,18 +1,21 @@
 <div class="container">
-<form action="/Event/addEvent" method="POST">
+<form action="/Events/addEvent" method="POST">
 	<h1>Add Event</h1>
 	<div class="">
-    <h4>Event Title</h4>
-    <input type="text" name="Title" value="{{data.Title}}">
+    <h4>Title</h4>
+    <input type="text" name="Title" value="{{data.Title}}" required>
 	</div>
 
   <div class="">
-    <h4>Event Description</h4>
-    <input type="text" name="Description" value="{{data.Description}}">
+    <h4>Description</h4>
+    <input type="text" name="Description" value="{{data.Description}}" required>
 	</div>
+
+
+
 	<hr>
 	<input
-		<button type ="submit" class="btn btn-primary"> </button>
+		<button type ="submit" class="btn btn-primary"/>
 
 </form>
 <hr>

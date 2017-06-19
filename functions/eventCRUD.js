@@ -15,29 +15,35 @@ exports.add = function (req, res, next) {
 		if (err) return next(err);
 		var data = {
       		Title : req.body.Title,
-					Description: req.body.Description
+					Description: req.body.Description,
+          //Name: req.body.Name
+
   		};
 		connection.query('insert into events set ?', data, function(err, results) {
   			if (err) return next(err);
-				res.redirect('/Event');
+				res.redirect('/Events');
 		});
 	});
 };
 
 
+
 exports.showAll = function(req, res) {
-    connection.query("SELECT * FROM `events`", [], function(err, result) {
-          res.render('Event', {
+  connection.query("SELECT events.id,events.Title, events.Description, DATE_FORMAT(events.Date,'%W %m-%d-%Y at %l:%i:%p') as Date, events.Name FROM events ORDER BY `events`.`date` DESC", [],function(err, result) {
+          res.render('Events', {
             data: result,
             admin: req.session.admin,
             user: req.session.username
         });
     });
 };
+
+
 exports.remove = function(req, res) {
     var id = req.params.id;
-          connection.query('DELETE FROM events WHERE id= ?', [id], function(err, rows) {
+    console.log(id);
+          connection.query('DELETE FROM events WHERE id= ?', id, function(err, rows) {
             if (err) console.log(err);
-            res.redirect('/Event');
+            res.redirect('/Events');
         });
     };
