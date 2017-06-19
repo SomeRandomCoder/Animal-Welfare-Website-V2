@@ -39,7 +39,7 @@ var mailOptions = {
     to: 'animalwelfareAWS@gmail.com', // list of receivers
 
     subject: 'Contact from website', // Subject line
-    text: 'Sent from: ' + req.body.InputEmail + '\n' + 'Name: ' + req.body.InputName + '\n'+ '\n' + 'Message:\n ' + req.body.InputMessage, // plaintext body
+    text: 'Sent from: ' + req.body.InputEmail + '\n' + 'Department: Inspectors'  + 'Name: ' + req.body.InputName + '\n'+ '\n' + 'Message:\n ' + req.body.InputMessage, // plaintext body
 };
 
 // send mail with defined transport object
@@ -49,6 +49,6 @@ transporter.sendMail(mailOptions, function(err, info){
       res.redirect('/contactUs');
     }
     console.log('Message sent: ' + info.response);
-    res.redirect('/');
+    res.redirect('/inspectors');
 });
 };
