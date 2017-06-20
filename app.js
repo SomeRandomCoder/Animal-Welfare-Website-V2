@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 app.use(flash());
+
 app.use(express.static("public"));
 
 
@@ -54,12 +55,15 @@ app.use(session({
   secret: 'secret',
   resave: true,
   saveUninitialized: false
+  cookie:{
+    maxAge: 600000
+  }
 }));
-//app.use(multer({dest: './public/uploads/'}).any());
+app.use(multer({dest: './public/uploads/'}).any());
 
-var uploads = multer({
-  dest: './public/uploads/'
-});
+// var uploads = multer({
+//   dest: './public/uploads/'
+// });
 
 app.use(function(req,res,next){
 
