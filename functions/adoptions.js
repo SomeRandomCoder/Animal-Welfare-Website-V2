@@ -23,14 +23,7 @@ var dbOptions = {
 
 var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
-  var text= "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-  for(var i = 0; i <5; i++)
-  {
-    text += possible.charAt(Math.floor(Math.random()*possible.length));
-  }
-    console.log(text);
 
     // var file = req.body.img;
 
@@ -46,12 +39,13 @@ exports.add = function(req, res) {
         gender: req.body.gender,
         bio: req.body.bio,
         size: req.body.size,
-        image: path,
-        refcode: text
+        image: path
+
     };
     connection.query('INSERT INTO `adoptions` SET ?', [data], function(err, rows) {
         if (err) console.log(err);
         res.redirect('/adoptions');
+        console.log("Entry successful!")
     });
 
 };

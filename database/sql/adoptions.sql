@@ -8,7 +8,5 @@ CREATE TABLE IF NOT EXISTS `adoptions` (
   `bio` varchar(250) NOT NULL,
   `size` VARCHAR(200) NOT NULL,
   `image` text,
-  `refcode` varchar(200) NOT NULL,
-
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
