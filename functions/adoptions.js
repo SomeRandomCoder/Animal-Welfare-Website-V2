@@ -24,11 +24,6 @@ var dbOptions = {
 var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
-
-    // var file = req.body.img;
-
-
-
      //var path = (req.file.path).replace("public\\", ''); //USE THIS LINE OF CODE WHEN  TESTING ON WINDOWS MACHINE  ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE DUE TO PATH IN 'IMAGE' COLUMN IS A \
      var path = (req.file.path).replace("public/", ''); //USE THIS LINE OF CODE WHEN  TESTING ON LINUX MACHINE ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE
 

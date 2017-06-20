@@ -29,7 +29,7 @@ exports.add = function (req, res, next) {
 
 
 exports.showAll = function(req, res) {
-  connection.query("SELECT events.id,events.Title, events.Description, DATE_FORMAT(events.Date,'%W %m-%d-%Y at %l:%i:%p') as Date, events.Name FROM events ORDER BY `events`.`date` DESC", [],function(err, result) {
+  connection.query("SELECT events.id,events.Title, events.Description, DATE_FORMAT(events.Date,'%W %m-%d-%Y at %l:%i:%p') as Date FROM events ORDER BY `events`.`date` DESC", [],function(err, result) {
           res.render('events', {
             data: result,
             admin: req.session.admin,
