@@ -24,8 +24,8 @@ var dbOptions = {
 var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
-     //var path = (req.file.path).replace("public\\", ''); //USE THIS LINE OF CODE WHEN  TESTING ON WINDOWS MACHINE  ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE DUE TO PATH IN 'IMAGE' COLUMN IS A \
-     var path = (req.file.path).replace("public/", ''); //USE THIS LINE OF CODE WHEN  TESTING ON LINUX MACHINE ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE
+       var path = (req.file.path).replace("public\\", ''); //USE THIS LINE OF CODE WHEN  TESTING ON WINDOWS MACHINE  ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE DUE TO PATH IN 'IMAGE' COLUMN IS A \
+    //  var path = (req.file.path).replace("public/", ''); //USE THIS LINE OF CODE WHEN  TESTING ON LINUX MACHINE ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE
 
     var data = {
         animal: req.body.animal,
@@ -38,9 +38,17 @@ exports.add = function(req, res) {
 
     };
     connection.query('INSERT INTO `adoptions` SET ?', [data], function(err, rows) {
-        if (err) console.log(err);
-        res.redirect('/adoptions');
-        console.log("Entry successful!")
+        if (err)
+        {
+          console.log(err);
+        } else
+        {
+          req.flash('success','Entry Successful');
+          return res.redirect('/adoptions/add');
+          
+        }
+
+
     });
 
 };
