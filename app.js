@@ -21,14 +21,26 @@ var animalDonations = require('./functions/AnimalDonations');
 var login = require("./functions/login");
 
 app.use(bodyParser.urlencoded({
+  keepExtensions: true,
   extended: false
 }));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+  limit: 10000000
+}));
 app.use(flash());
 
 app.use(express.static("public"));
 
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: false,
+  cookie:{
+
+    maxAge: 600000
+  }
+}));
 
 var dbOptions = {
   host: "127.0.0.1",
@@ -51,14 +63,7 @@ app.engine("handlebars", handlebars({
 }));
 app.set("view engine", "handlebars");
 
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: false
-  cookie:{
-    maxAge: 600000
-  }
-}));
+
 app.use(multer({dest: './public/uploads/'}).any());
 
 // var uploads = multer({
