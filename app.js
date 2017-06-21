@@ -64,7 +64,7 @@ app.engine("handlebars", handlebars({
 app.set("view engine", "handlebars");
 
 
-app.use(multer({dest: './public/uploads/'}).any());
+// app.use(multer({dest: './public/uploads/'}).any());
 
 // var uploads = multer({
 //   dest: './public/uploads/'
