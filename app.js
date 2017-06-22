@@ -54,12 +54,12 @@ app.set("view engine", "handlebars");
 app.use(session({
   secret: 'secret',
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: false,
   cookie:{
     maxAge: 600000
   }
 }));
-app.use(multer({dest: './public/uploads/'}).any());
+//app.use(multer({dest: './public/uploads/'}).any());
 
 // var uploads = multer({
 //   dest: './public/uploads/'
