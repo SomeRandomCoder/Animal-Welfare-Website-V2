@@ -7,6 +7,12 @@
 
 }
 
+.placeholderImages{
+  max-width: 100%;
+  min-width:250px;
+  max-height: auto;
+  min-height: 150px;
+}
 
 .imgLogo{
   height:45px;
@@ -146,6 +152,16 @@
     font-size: 12px;
   }
 }
+
+/*@media screen and (max-width:768px){
+  #NAVBAR{
+    padding-left:0.1%;
+  }
+  #NAVBAR li{
+    font-size: 46%;
+
+  }
+}*/
 #input{
   margin-bottom: 10px;
 }
