@@ -9,7 +9,7 @@ var users = String(fs.readFileSync('./sql/users.sql'));
 var admin = String(fs.readFileSync('./sql/admin.sql'));
 var events = String(fs.readFileSync('./sql/events.sql'));
 var adoptions = String(fs.readFileSync('./sql/adoptions.sql'));
-var editableContent = String(fs.readFileSync('./sql/editableContent.sql'));
+var editableContent = String(fs.readFileSync('./sql/editablecontent.sql'));
 var updatedImages = String(fs.readFileSync('./sql/updatedimages.sql'));
 
 
