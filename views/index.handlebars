@@ -61,39 +61,122 @@
 <hr>
 
 <div class="row">
-  <div class="col-md-12">
-      <div class="col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2">
+      <div id="homeDiv1" name="ElementId"  {{#if admin}} class="Div borderClass"{{/if}}>
+        {{#homeDiv1}}
+        <div class="Text" name="updatedText">
+        <p><h4>{{{updatedText}}}</h4></div>
+      {{/homeDiv1}}
 
-        <p><h4>The Animal Welfare Society of South Africa offers a full range of veterinary services to the underprivileged and disadvantaged communities of Cape Town.
-      From its base in Philippi, the Society handles about 4,000 animals per month. The Clinic is open 7 days a week to accommodate those that are unable to bring their pets during the week.
-      We have a fully equipped and very busy theatres where we do sterilizations, Orthopaedic and other operations. At any one time we can house over a hundred sick or injured animals.
-      We are committed to sterilizing every animal that comes through our hospital as our contribution to reducing the number of strays and unwanted animals in Cape Town</h4></p>
-
-    </div>
+        {{#if admin}}
+          <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right"  href = "/update"  ></a>
+          {{/if}}
+      </div>
     <!-- <div class="col-md-2"></div> -->
-  </div>
+</div>
 </div>
 
 <div class="row">
-    <div class="col-md-4 col-md-offset-2">
-        <h2>Contact us</h2>
-        <p>If you would like to contact us via phonecall, please visit the <a href="contactUs">Contact Us</a> page and find our number there.</p>
-        <p>If you would like to send us and email for an anonymous tip off, please fill out the email form on the <a href="/inspectors">Inspectors page</a></p>
+  <div class="col-md-4 col-md-offset-2">
+    <div  id="homeDiv2" {{#if admin}}class="Div borderClass"{{/if}}>
+      {{#homeDiv2}}
+        <div class="Text" name="updatedText">
+          {{{updatedText}}}
+        </div>
+        {{/homeDiv2}}
 
+        {{#if admin}}
+          <a href="/update" class="Button glyphicon glyphicon-edit btn btn-primary pull-right"></a>
+        {{/if}}
     </div>
+  </div>
     <!-- /.col-md-4 -->
     <div class="col-md-5">
-        <h2>Our Banking Details</h2>
-        <p><h5>
-          <li>Standard Bank, Kromboom</li>
-          <li>Branch Code 026209</li>
-          <li>A/C Animal Welfare Society of SA</li>
-          <li>No. 07 286 319 6</li>
-          <li>Reference: Your surname plus Membership/Donation</li>
-          <li>For Section 18A Tax Certificate, please email us at Admin@awscape.org.za</li></h5>
+    <div  id="homeDiv3" {{#if admin}}class="Div borderClass"{{/if}}>
+      {{#homeDiv3}}
 
-        </p>
+      <div class="Text" name="updatedText">
 
+            {{{updatedText}}}
+
+      </div>
+      {{/homeDiv3}}
+
+        {{#if admin}}
+          <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right"  href = "/update"  ></a>
+          {{/if}}
     </div>
+  </div>
 
 </div>
+
+<script>
+  $(".ButtonWithoutHeading").click(function(e){
+    var elementId = $(this).closest('div').attr('id');
+        ElementName = elementId;
+
+    var text = $(this).closest('div').find('.Text').text();
+        updatedText = text;
+
+  //
+   var PageURL = this.PageURL;
+   var url = window.location.href;
+  //
+       PageURL = url;
+
+   var data ={
+     Text: updatedText,
+     PageURL : PageURL,
+     ElementId : ElementName
+    }
+   console.log(data);
+
+   sessionStorage.setItem('data', JSON.stringify(data));
+   });
+  //  $('.Div').on('mouseenter',function(){
+  //    $(this).addClass('box-shadow');
+   //
+  //    $('.Div').on('mouseleave',function(){
+  //      $(this).removeClass('box-shadow');
+  //    })
+   //
+  //  })
+</script>
+
+<script>
+    $(".Button").click(function(e){
+      var elementId = $(this).closest('div').attr('id');
+      ElementName = elementId;
+
+      var text = $(this).closest('div').find('.Text').text();
+       updatedText = text;
+
+       var Title = $(this).closest('div').find('.Title').text();
+        heading=Title;
+      //
+       var PageURL = this.PageURL;
+       var url = window.location.href;
+      //
+       PageURL = url;
+
+       var data ={
+         Title: Title,
+         Text: updatedText,
+         PageURL : PageURL,
+         ElementId : ElementName
+       }
+
+       sessionStorage.setItem('data', JSON.stringify(data));
+
+       console.log(data);
+       });
+
+       $('.Button').on('mouseenter',function(){
+         $(this).closest('.Div').addClass('box-shadow');
+
+         $('.Div').on('mouseleave',function(){
+            $(this).closest('.Div').removeClass('box-shadow');
+         })
+
+       })
+</script>

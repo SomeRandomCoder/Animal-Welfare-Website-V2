@@ -2,7 +2,17 @@
     <h1 class="page-header">Inspectors Team</h1>
 
     <div class="sliderDiv img-responsive">
-        <img src="/Images/Inspectors/InspectorsTeam.jpg" class="img-responsive" style="height:300px;width:850px;">
+      <div id="inspectorsImageDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+        {{#inspectorsImageDiv1}}
+          <img class="img" class="img-responsive" src="{{image}}">
+        {{/inspectorsImageDiv1}}
+
+        {{#if admin}}
+            <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+            {{/if}}
+      </div>
+        <!-- <img src="/Images/Inspectors/InspectorsTeam.jpg" class="img-responsive" style="height:300px;width:850px;"> -->
     </div>
 
 
@@ -11,41 +21,130 @@
         <div class="col-md-12">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2>You can Contact Us</h2>
-                <p>
-                    <h4>If you would like to make a tip off of animal cruilty behaviour happening in your area, please fill out the email form down below, download and fill out the form or you can contact us on<br> 021 692 2626</h4></p>
-                  </div>
+              <div id="inspectorsDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
 
-                <form action="/contactUs" method="post">
-                    <div class="col-lg-6 col-md-offset-3">
-                        <div class="form-group">
-                            <label for="InputName">Name </label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputEmail">Your Email</label>
-                            <div class="input-group">
-                                <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required>
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputMessage">Message</label>
-                            <div class="input-group">
-                                <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-                        </div>
-                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary pull-right">
-                    </div>
-                </form>
+                {{#inspectorsDiv1}}
+                <div class="Text" name="updatedText">
+                    {{{updatedText}}}
+                </div>
+                {{/inspectorsDiv1}}
+                  {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                  {{/if}}
+                </div>
+
+
                 <br>
+        </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+            <form action="/contactUs" method="post">
+              <div class="col-lg-6 col-md-offset-3">
+                  <div class="form-group">
+                      <label for="InputName">Name </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="InputEmail">Your Email</label>
+                      <div class="input-group">
+                          <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required>
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="InputMessage">Message</label>
+                      <div class="input-group">
+                          <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+                  </div>
+                  <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary pull-right">
+              </div>
+          </form>
 
 
         </div>
-        <div class="col-md-4 col-md-offset-3">
+
+          <div class="col-md-12">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
         <h4>Download Contact Form down below</h4>
         <a href="/PDF/InspectorContactForm.pdf" download class="btn btn-primary glyphicon glyphicon-floppy-save " href="#"> Download </a>
+        </div>
+        <div class="col-md-3"></div>
+
       </div>
-    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+    $('#downloadForm').click( function() {
+        $('#mydiv').append("<p>No Form to be downloaded, please use email service in the meantime.</p>");
+      $('#downloadForm').prop('disabled',true); } );
+
+    </script>
+
+    <script>
+
+          $(".Button").click(function(e){
+            var elementId = $(this).closest('div').attr('id');
+            ElementName = elementId;
+
+            var text = $(this).closest('div').find('.Text').text();
+             updatedText = text;
+
+          //   var Title = $(this).closest('div').find('.Title').text();
+            //  heading=Title;
+            //
+             var PageURL = this.PageURL;
+             var url = window.location.href;
+            //
+            PageURL = url;
+
+             var data ={
+               Text: updatedText,
+               PageURL : PageURL,
+               ElementId : ElementName
+             }
+
+             sessionStorage.setItem('data', JSON.stringify(data));
+
+
+             console.log(data);
+
+            //  $.get('/updateAboutUs', function(data){
+            //  });
+
+
+             });
+
+             $('.Button').on('mouseenter',function(){
+               $(this).closest('.Div').addClass('box-shadow');
+
+               $('.Div').on('mouseleave',function(){
+                  $(this).closest('.Div').removeClass('box-shadow');
+               })
+
+             })
+
+
+
+
+
+
+
+
+
+          </script>

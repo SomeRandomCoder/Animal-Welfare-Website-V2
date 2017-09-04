@@ -6,36 +6,49 @@
 
       <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="col-md-3">
-          <img class="img-responsive placeholderImages" src="/Images/Cats/cat3.jpg" alt="">
+          <div id="adoptionsImageDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+            {{#adoptionsImageDiv1}}
+              <img class="img" class="img-responsive" src="{{image}}">
+            {{/adoptionsImageDiv1}}
+
+            {{#if admin}}
+                <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                {{/if}}
+          </div>
+          <!-- <img class="img-responsive placeholderImages" src="/Images/Cats/cat3.jpg" alt=""> -->
         </div>
 
         <div class="col-md-6">
-          <h3>Adoption Procedure</h3>
-          <ol>
-              <li>
-                  <p>Look at the dogs and cats available on our site and get an idea of what you are looking for. Choosing a pet is a big responsibility and a long-term commitment. Remember your adopted friend will require food, water, exercise, veterinarian
-                      care as well as your love and attention.</p>
-              </li>
-              <li>
-                  <p>Visit the Animal Welfare Kennels and see which dog/cat appeals to you and from whom you get a warm feeling. Make sure that the animal will fit into your lifestyle e.g. do not choose a big dog if you are unable to take it for long walks
-                      and you do not have a big space for it to live.</p>
-              </li>
-              <li>
-                  <p>Once you have made your choice, if you have a dog at home bring it in to meet its prospective companion (if you are choosing another dog). It is important that they meet on neutral territory first and you can get an idea of how they
-                      are going to interact. (to speed things up you can bring your dog when you first visit the kennels)</p>
-              </li>
-              <li>
-                  <p>If you choose a dog, once the paperwork is completed, an Inspector will call to make a time to visit your home to see that it is secure and will provide our dog(s) with a suitable environment to live in. If the Inspector approves,
-                      then your chosen dog will be booked for sterilization and micro-chipping. You will then be phoned when your pet is ready for collection. Cats do not require a property inspection.</p>
-              </li>
-              <li>
-                  <p>Our adoption fee is as follows: R600 for a dog and R500 for a cat. All animals will be handed over to you fully vaccinated, sterilized and micro-chipped.</p>
-              </li>
-        </div>
+          <div id="adoptionsDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+            {{#adoptionsDiv1}}
+            <div class="Text" name="updatedText">
+                {{{updatedText}}}
+            </div>
+            {{/adoptionsDiv1}}
+              {{#if admin}}
+                <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+              {{/if}}
+                    </div>
+
+      </div>
 
         <div class="col-md-3">
-          <img class="img-responsive placeholderImages" src="/Images/Dogs/catAndDog.jpeg" alt="">
+          <div id="adoptionsImageDiv2 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+            {{#adoptionsImageDiv2}}
+              <img class="img" class="img-responsive" src="{{image}}">
+            {{/adoptionsImageDiv2}}
+
+            {{#if admin}}
+                <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                {{/if}}
+          </div>
+
+          <!-- <img class="img-responsive placeholderImages" src="/Images/Dogs/catAndDog.jpeg" alt=""> -->
         </div>
+
       </div>
           <hr>
 
@@ -47,20 +60,27 @@
             </div>
 
             <div class="col-md-6">
-              <h3>Adoption Policy</h3>
-                      <p>Before adopting an animal, please download and read the adoption policy.</p>
+              <div id="adoptionsDiv2 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#adoptionsDiv2}}
+                <div class="Text" name="updatedText">
+                    {{{updatedText}}}
+                </div>
+                {{/adoptionsDiv2}}
+                  {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                  {{/if}}
+                        </div>
+              <!-- <h3>Adoption Policy</h3>
+                      <p>Before adopting an animal, please download and read the adoption policy.</p> -->
+
+
+
               <div class="col-md-1"></div>
                 <div class="col-md-10">
-
-                    <!-- <button type="submit" id="downloadForm" class="btn btn-primary glyphicon glyphicon-floppy-save col-md-12">Download</button> -->
-
-
-
-
                   <a href="/PDF/AdoptionPolicy.pdf" download class="btn btn-primary glyphicon glyphicon-floppy-save col-md-12" href="#"> Download </a>
-
                   <div id="mydiv"></div>
-          </div>
+                </div>
                 <div class="col-md-1"></div>
             </div>
 
@@ -71,17 +91,29 @@
 
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="col-md-3">
-                <img class="img-responsive" src="/Images/Dogs/dog6.jpg" alt="">
+              <div id="adoptionsImageDiv3 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#adoptionsImageDiv3}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/adoptionsImageDiv3}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+                <!-- <img class="img-responsive" src="/Images/Dogs/dog6.jpg" alt=""> -->
             </div>
 
             <div class="col-md-6">
+
+              {{#unless user}}
+              {{#unless admin}}
               <h3>Adopt A Cat or Dog</h3>
 
                       <p>Please click on one of these buttons to take you to view all the animals that are up for adoption </p>
 
 
-                {{#unless user}}
-                {{#unless admin}}
+
                 <div class="col-md-1"></div>
                   <div class="col-md-10">
 
@@ -100,6 +132,17 @@
                   {{/unless}}
 
                   {{#if admin}}
+                  <div id="adoptionsDiv3 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                    {{#adoptionsDiv3}}
+                    <div class="Text" name="updatedText">
+                        {{{updatedText}}}
+                    </div>
+                    {{/adoptionsDiv3}}
+                      {{#if admin}}
+                        <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                      {{/if}}
+                            </div>
                       <div class="col-md-12">
 
                         <a class="btn btn-primary" style="width: 100%" href="/adoptions/add">Add an animal to adoptions</a>
@@ -109,7 +152,17 @@
             </div>
 
             <div class="col-md-3">
-              <img class="img-responsive" src="/Images/Cats/cat1.jpg" alt="">
+              <div id="adoptionsImageDiv4 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#adoptionsImageDiv4}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/adoptionsImageDiv4}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+              <!-- <img class="img-responsive" src="/Images/Cats/cat1.jpg" alt=""> -->
 
             </div>
 
@@ -126,8 +179,20 @@
             </div>
 
             <div class="col-md-6">
-              <h3>Adoption Form</h3>
-                      <p>Once you have decided on which animal(s) you would like to adopt, please download the form below and fill it out or email us at admin@awscape.org.za </p>
+              <!-- <h3>Adoption Form</h3>
+                      <p>Once you have decided on which animal(s) you would like to adopt, please download the form below and fill it out or email us at admin@awscape.org.za </p> -->
+
+                      <div id="adoptionsDiv4 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                        {{#adoptionsDiv4}}
+                        <div class="Text" name="updatedText">
+                            {{{updatedText}}}
+                        </div>
+                        {{/adoptionsDiv4}}
+                          {{#if admin}}
+                            <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                          {{/if}}
+                                </div>
               <div class="col-md-1"></div>
                 <div class="col-md-10">
 
@@ -167,6 +232,59 @@ $('#downloadForm').click( function() {
   $('#downloadForm').prop('disabled',true); } );
 
 </script>
+
+<script>
+
+      $(".Button").click(function(e){
+        var elementId = $(this).closest('div').attr('id');
+        ElementName = elementId;
+
+        var text = $(this).closest('div').find('.Text').text();
+         updatedText = text;
+
+      //   var Title = $(this).closest('div').find('.Title').text();
+        //  heading=Title;
+        //
+         var PageURL = this.PageURL;
+         var url = window.location.href;
+        //
+        PageURL = url;
+
+         var data ={
+           Text: updatedText,
+           PageURL : PageURL,
+           ElementId : ElementName
+         }
+
+         sessionStorage.setItem('data', JSON.stringify(data));
+
+
+         console.log(data);
+
+        //  $.get('/updateAboutUs', function(data){
+        //  });
+
+
+         });
+
+         $('.Button').on('mouseenter',function(){
+           $(this).closest('.Div').addClass('box-shadow');
+
+           $('.Div').on('mouseleave',function(){
+              $(this).closest('.Div').removeClass('box-shadow');
+           })
+
+         })
+
+
+
+
+
+
+
+
+
+      </script>
 
 <style>
     .spacer {

@@ -35,17 +35,61 @@
             <source src="/videos/AWS.mp4" type="video/mp4">
 
         </video>
-        <h4>A brief description of each department at the Animal Welfare</h4>
-        <p>
-          The Animal Welfare Society consists of three sections, first section being the vetenarian and medicine section, it is first class treatment even to those who cannot afford it, using the best medicine to help the animal recover from surgery or injury.
-        </p>
-          <p>Secondly, the inspectors section, the inspectors go out and investigate when they receive reports of animal mistreatment or when animals are not in a good situation.
-          </p>
+        <div  id="newsDiv1" {{#if admin}}class="Div borderClass"{{/if}}>
 
-          <p>Thirdly, the adoptions center, this section goes out to schools and talks to the pupils about the animals and the work of done at the society and encourages the pupils to go to the Animal Welfare if they are looking to add a animal as a pet to their family.
-          </p>
+          {{#newsDiv1}}
 
+          <div class="Text" name="updatedText">
+        
+        {{{updatedText}}}
+
+          {{/newsDiv1}}
+          {{#if admin}}
+            <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right"  href = "/update"  ></a>
+            {{/if}}
+          </div>
       </div>
 
   </div>
   <div class="row col-md-12" />
+
+
+
+
+  <script>
+      $(".Button").click(function(e){
+        var elementId = $(this).closest('div').attr('id');
+        ElementName = elementId;
+
+        var text = $(this).closest('div').find('.Text').text();
+         updatedText = text;
+
+         var Title = $(this).closest('div').find('.Title').text();
+          heading=Title;
+        //
+         var PageURL = this.PageURL;
+         var url = window.location.href;
+        //
+         PageURL = url;
+
+         var data ={
+           Title: Title,
+           Text: updatedText,
+           PageURL : PageURL,
+           ElementId : ElementName
+         }
+
+         sessionStorage.setItem('data', JSON.stringify(data));
+
+         console.log(data);
+         });
+
+         $('.Button').on('mouseenter',function(){
+           $(this).closest('.Div').addClass('box-shadow');
+
+           $('.Div').on('mouseleave',function(){
+              $(this).closest('.Div').removeClass('box-shadow');
+           })
+
+         })
+  </script>

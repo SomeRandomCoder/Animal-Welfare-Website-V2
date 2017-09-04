@@ -3,23 +3,52 @@
                 <h1 class="page-header">About Us</h1>
             </div>
 
-            <div class="row">
+        <div class="row" id="row">
 
             <div class="col-md-3">
-                <img class="img" class="img-responsive" src="/Images/ClinicPics/OperationInProgress.jpg">
+              <div id="AboutUsImageDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#AboutUsImageDiv1}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv1}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
             </div>
 
-            <div class="col-md-6">
-                <h3>The Clinic</h3>
-                <p>The Animal Welfare Society of South Africa offers a full range of veterinary services to the underprivileged and disadvantaged communities of Cape Town. From its base in Philippi, the Society handles about 4,000 animals per month. The
-                    Clinic is open 7 days a week to accommodate those that are unable to bring their pets during the week. We have fully equipped and very busy theatres where we do sterilizations, Orthopaedic and other procedures. At any one time we can
-                    house in excess of a hundred sick or injured animals. We are committed to sterilizing every animal that comes through our hospital as our contribution to reducing the number of strays and unwanted animals in Cape Town.</p>
+            <div class="col-md-6"  >
+
+              <div id="AboutUsDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+                {{#AboutUsDiv1}}
+
+                <div class="Text" name="updatedText">
+                  {{{updatedText}}}
+                </div>
+                {{/AboutUsDiv1}}
+
+
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                    {{/if}}
+                  </div>
 
             </div>
+
             <div class="col-md-3">
+              <div id="AboutUsImageDiv2 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
 
-                <img class="img" class="img-responsive" src="/Images/ClinicPics/dogInClinicKennel.jpg" alt="">
+                {{#AboutUsImageDiv2}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv2}}
 
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+                <!-- <img class="img" class="img-responsive" src="/Images/ClinicPics/dogInClinicKennel.jpg" alt=""> -->
             </div>
 
         </div>
@@ -30,23 +59,55 @@
         <!-- Project Two -->
         <div class="row">
             <div class="col-md-3">
-                <img class="img" class="img-responsive" src="/Images/Kennels/Dog1InKennel.jpg" alt="">
+              <div id="AboutUsImageDiv3 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#AboutUsImageDiv3}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv3}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+                <!-- <img class="img" class="img-responsive" src="/Images/Kennels/Dog1InKennel.jpg" alt=""> -->
             </div>
 
-            <div class="col-md-6">
-                <h3>Adoption Kennels</h3>
-                <p>The Society also has Adoption kennels. We take in stray and unwanted pets to see if we can find them suitable homes. The animal is sterilized and micro-chipped before leaving the Organization and we are strict about home-checks. We have
-                    many very happy Adopters and pets out there in the greater Cape Town community. The Animal Welfare Society also offers pound facilities to Law Enforcement. Our Inspectorate department responds to daily calls with regard to cases relating
-                    to abuse and general neglect of animals as well as on going reported cases of animal fighting amongst our communities. Very often we respond to reports of injured stray animals, large and small on our public road ways by our City Traffic
-                    Department, SAPS and Metro Police. The Society is funded entirely by the generosity of the public.</p>
+            <div class="col-md-6" >
+
+              <div id="AboutUsDiv2" name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}} >
+                {{#AboutUsDiv2}}
+
+                  <!-- <div class = "Title" name="heading">
+                     <h3>{{Title}}</h3>
+                  </div> -->
+
+                  <div class="Text" name="updatedText">
+                    {{{updatedText}}}
+                  </div>
+                  {{/AboutUsDiv2}}
+                  {{#if admin}}
+                      <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                      {{/if}}
+
+              </div>
+
+
 
 
             </div>
 
             <div class="col-md-3">
-              <img class="img" class="img-responsive" src="/Images/Cats/cute-cat-dog.jpg" alt="">
+              <div id="AboutUsImageDiv4 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
 
+                {{#AboutUsImageDiv4}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv4}}
 
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+              <!-- <img class="img" class="img-responsive" src="/Images/Cats/cute-cat-dog.jpg" alt=""> -->
             </div>
         </div>
         <!-- /.row -->
@@ -54,25 +115,112 @@
         <hr>
 
         <!-- Project Three -->
-        <div class="row">
+        <div class="row" >
 
             <div class="col-md-3">
-                <img class="img" class="img-responsive"  src="/Images/Slider/dogOnBeach.jpg" alt="">
+              <div id="AboutUsImageDiv5 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#AboutUsImageDiv5}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv5}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+                <!-- <img class="img" class="img-responsive"  src="/Images/Slider/dogOnBeach.jpg" alt=""> -->
 
             </div>
 
-            <div class="col-md-6">
-                <h3>History</h3>
-                <p>The Animal Welfare Society (AWS) was originally formed in 1929 to lobby the Cape Town City Council to adopt humane killing methods at its abbattoir. During the 1930s the Animal Welfare Society set up part-time clinics in District Six,
-                    Claremont, Plumstead and Athlone followed by a travelling dispensary. The van moved round the Cape Flats and during 1938 over 7000 animals received attention. Kathleen Atkins took over the management of the Society in 1945 and remained
-                    at the helm till 1985. During this period the Society acquired premises in Philippi where full-time Veterinary services were set up. After Kate Atkins died June Woodman took over the management of the Society and built it up until
-                    it was in a position to build new facilities on the premises in Philippi, with state of the art equipment during the period 2009 until 2011. She unfortunately passed away before the building was completed.</p>
+            <div class="col-md-6" >
+
+              <div id="AboutUsDiv3" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+                {{#AboutUsDiv3}}
+
+                <!-- <div class = "Title" name="heading">
+                   <h3>{{Title}}</h3>
+                </div> -->
+
+                <div class="Text" name="updatedText">
+                  {{{updatedText}}}
+                </div>
+                {{/AboutUsDiv3}}
+
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                    {{/if}}
+
+                  </div>
 
 
             </div>
 
             <div class="col-md-3">
-                <img class="img" class="img-responsive" src="/Images/Inspectors/RescueOperationTeam.jpg" alt="">
+              <div id="AboutUsImageDiv6 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#AboutUsImageDiv6}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/AboutUsImageDiv6}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+                <!-- <img class="img" class="img-responsive" src="/Images/Inspectors/RescueOperationTeam.jpg" alt=""> -->
             </div>
 
         </div>
+
+        <script>
+
+        $(".Button").click(function(e){
+          var elementId = $(this).closest('div').attr('id');
+          ElementName = elementId;
+
+          var text = $(this).closest('div').find('.Text').text();
+           updatedText = text;
+
+        //   var Title = $(this).closest('div').find('.Title').text();
+          //  heading=Title;
+          //
+           var PageURL = this.PageURL;
+           var url = window.location.href;
+          //
+          PageURL = url;
+
+           var data ={
+             Text: updatedText,
+             PageURL : PageURL,
+             ElementId : ElementName
+           }
+
+           sessionStorage.setItem('data', JSON.stringify(data));
+
+
+           console.log(data);
+
+          //  $.get('/updateAboutUs', function(data){
+          //  });
+
+
+           });
+
+           $('.Button').on('mouseenter',function(){
+             $(this).closest('.Div').addClass('box-shadow');
+
+             $('.Div').on('mouseleave',function(){
+                $(this).closest('.Div').removeClass('box-shadow');
+             })
+
+           })
+
+
+
+
+
+
+
+
+
+        </script>

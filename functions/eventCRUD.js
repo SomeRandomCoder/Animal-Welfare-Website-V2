@@ -15,7 +15,7 @@ exports.add = function (req, res, next) {
 		if (err) return next(err);
 		var data = {
       		Title : req.body.Title,
-					Description: req.body.Description,
+					Description: req.body.Description
           //Name: req.body.Name
 
   		};

@@ -1,3 +1,21 @@
+
+.box-shadow{
+  box-shadow: 5px 5px 5px 5px #888888;
+}
+
+
+.borderClass{
+  border-width:1px;
+  border-style: ridge;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  /** OR USE INLINE
+  border: 1px solid #C1E0FF;
+  **/
+}
+
 .wrapper {
   background-image: url(../Images/NavBarImage.png);
   background-repeat: no-repeat;

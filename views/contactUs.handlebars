@@ -6,45 +6,19 @@
         <div class="col-md-3"></div>
 
         <div class="col-md-6">
-            <!-- <hr> -->
-            <!-- <h2>Contact Information</h2> -->
-            <!-- <hr> -->
-            <p>
-                <b>General :</b> admin@awscape.org.za<br>
-            </p>
+          <div id="contactUsDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
 
-            <p>
-                <b>Adoptions :</b> adoptions@awscape.org.za<br>
-            </p>
-
-            <p>
-                <b>Inspector (Complaints) :</b> inspector@awscape.org.za<br>
-            </p>
-
-            <p>
-                <b>T (+27) 21 692 2626</b><br>
-
-            </p>
-
-            <p>
-                <b>F (+27) 21 691 1328</b><br>
-            </p>
-
-
-            <p>
-                Papkuilsvlei Road<br> Philippi
-                <br> Western cape<br> South Africa<br>
-            </p>
-            <p>
-                PO Box 32057<br> Ottery
-                <br> 7808
-                <br> South Africa <br>
-            </p>
-            <hr>
-
+              {{#contactUsDiv1}}
+              <div class="Text" name="updatedText">
+                  {{{updatedText}}}
+              </div>
+              {{/contactUsDiv1}}
+                {{#if admin}}
+                  <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                {{/if}}
+              </div>
 
             <h2>Send Us an Email:</h2>
-
 
             <form action="/contactUs" method="post">
 
@@ -75,3 +49,50 @@
 
 </div>
 <div class="row col-md-12" />
+
+
+<script>
+
+      $(".Button").click(function(e){
+        var elementId = $(this).closest('div').attr('id');
+        ElementName = elementId;
+
+        var text = $(this).closest('div').find('.Text').text();
+         updatedText = text;
+
+      //   var Title = $(this).closest('div').find('.Title').text();
+        //  heading=Title;
+        //
+         var PageURL = this.PageURL;
+         var url = window.location.href;
+        //
+        PageURL = url;
+
+         var data ={
+           Text: updatedText,
+           PageURL : PageURL,
+           ElementId : ElementName
+         }
+
+         sessionStorage.setItem('data', JSON.stringify(data));
+
+
+         console.log(data);
+
+        //  $.get('/updateAboutUs', function(data){
+        //  });
+
+
+         });
+
+         $('.Button').on('mouseenter',function(){
+           $(this).closest('.Div').addClass('box-shadow');
+
+           $('.Div').on('mouseleave',function(){
+              $(this).closest('.Div').removeClass('box-shadow');
+           })
+
+         })
+
+
+      </script>

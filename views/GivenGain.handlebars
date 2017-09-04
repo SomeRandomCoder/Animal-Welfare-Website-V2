@@ -6,27 +6,48 @@
 <div class="row">
     <!-- Page Heading -->
     <div class="row" id="GivenGain">
-
-
-
         <div class="col-lg-12">
-
           <div class="col-md-3" >
-            <img class="img-responsive" src="/Images/Donations/Donations.jpg" alt="">
+            <div id="givenGainImageDiv1 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
 
+              {{#givenGainImageDiv1}}
+                <img class="img" class="img-responsive" src="{{image}}">
+              {{/givenGainImageDiv1}}
+
+              {{#if admin}}
+                  <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                  {{/if}}
+            </div>
+            <!-- <img class="img-responsive" src="/Images/Donations/Donations.jpg" alt=""> -->
           </div>
 
           <div class="col-md-6" >
+            <div id="givenGainDiv1" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+              {{#givenGainDiv1}}
+                <div class="Text" name="updatedText">
+                  {{{updatedText}}}
+                </div>
+              {{/givenGainDiv1}}
 
-            <h2>Donations</h2>
-            <p>As mentioned before, the society is funded entirely by the generoicity of the comunity.
-              If you would like to help out, please click on the "Donate" button bellow to help out.</p>
-
+              {{#if admin}}
+                <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+              {{/if}}
+            </div>
               <a class="btn btn-primary" href="https://www.payfast.co.za/donate/go/animalwelfaresocietyofsouthafrica">Donate Online</a>
               <a href="/PDF/Donations.pdf" download class="btn btn-primary glyphicon glyphicon-floppy-save ">Download</a>
-</div>
+          </div>
 <div class="col-md-3">
-  <img class="img-responsive" src="/Images/Donations/donate.jpg" alt="">
+  <div id="givenGainImageDiv2 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+    {{#givenGainImageDiv2}}
+      <img class="img" class="img-responsive" src="{{image}}">
+    {{/givenGainImageDiv2}}
+
+    {{#if admin}}
+        <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+        {{/if}}
+  </div>
+  <!-- <img class="img-responsive" src="/Images/Donations/donate.jpg" alt=""> -->
 
 </div>
 </div>
@@ -37,18 +58,17 @@
 
 <div class="col-md-6">
 
-              <h2>Bank Details</h2>
+  <div id="givenGainDiv2" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+    {{#givenGainDiv2}}
+      <div class="Text" name="updatedText">
+        {{{updatedText}}}
+      </div>
+    {{/givenGainDiv2}}
 
-              <div id="BankDetails">
-                <ul>
-                  <li>Standard Bank, Kromboom</li>
-                  <li>Branch Code 026209</li>
-                  <li>A/C Animal Welfare Society of SA</li>
-                  <li>No. 07 286 319 6</li>
-                  <li>Reference: Your surname plus Membership/Donation</li>
-                  <li>For Section 18A Tax Certificate, please email us at Admin@awscape.org.za</li></h5>
-              </ul>
-            </div>
+    {{#if admin}}
+      <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+    {{/if}}
+  </div>
             </div>
 
             <div class="col-md-3">
@@ -60,17 +80,46 @@
 <div class="col-lg-12">
   <hr>
   <div class="col-md-3">
-    <img class="img-responsive" src="/Images/Donations/DonateNow.png" alt="" style="padding-top:75px;">
+    <div id="givenGainImageDiv3 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+      {{#givenGainImageDiv3}}
+        <img class="img" class="img-responsive" src="{{image}}">
+      {{/givenGainImageDiv3}}
+
+      {{#if admin}}
+          <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+          {{/if}}
+    </div>
+    <!-- <img class="img-responsive" src="/Images/Donations/DonateNow.png" alt="" style="padding-top:75px;"> -->
 
   </div>
 
   <div class="col-md-6">
-            <h2> Given Gain</h2>
-              <p>The Animal Welfare Society in Cape Town offers subsidized medical treatment for the pets of the disadvantaged population of Cape Town.  From our premises in Philippi we operate seven days a week.</p>
-</div>
+    <div id="givenGainDiv3" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+      {{#givenGainDiv3}}
+        <div class="Text" name="updatedText">
+          {{{updatedText}}}
+        </div>
+      {{/givenGainDiv3}}
+
+      {{#if admin}}
+        <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+      {{/if}}
+    </div>
+          </div>
 
 <div class="col-md-3">
-  <img class="img-responsive" src="/Images/Donations/GivenGain.jpg" alt="">
+  <div id="givenGainImageDiv4 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+    {{#givenGainImageDiv4}}
+      <img class="img" class="img-responsive" src="{{image}}">
+    {{/givenGainImageDiv4}}
+
+    {{#if admin}}
+        <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+        {{/if}}
+  </div>
+  <!-- <img class="img-responsive" src="/Images/Donations/GivenGain.jpg" alt=""> -->
 </div>
 </div>
           <hr>
@@ -78,26 +127,46 @@
           <div class="col-lg-12">
             <hr>
             <div class="col-md-3">
-            <img class="img-responsive" src="/Images/ClinicPics/healthcareforanimals.jpg" alt="">
+              <div id="givenGainImageDiv5 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+                {{#givenGainImageDiv5}}
+                  <img class="img" class="img-responsive" src="{{image}}">
+                {{/givenGainImageDiv5}}
+
+                {{#if admin}}
+                    <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                    {{/if}}
+              </div>
+            <!-- <img class="img-responsive" src="/Images/ClinicPics/healthcareforanimals.jpg" alt=""> -->
 
             </div>
 
             <div class="col-md-6">
 
-          <h2>Our main focus areas are as follows:</h2>
-          <div id="BankDetails">
+              <div id="givenGainDiv4" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+                {{#givenGainDiv4}}
+                  <div class="Text" name="updatedText">
+                    {{{updatedText}}}
+                  </div>
+                {{/givenGainDiv4}}
 
-                  <ul>
-                    <li>Primary Health care for small domestic pets (mainly cats and dogs)</li>
-                    <li>Education with regard to pet care and nutrition</li>
-                    <li>In-patient care for the sick and wounded pets</li>
-                    <li>Sterilization as a means of controlling the burgeoning dog and cat populations</li>
-                    <li>Adoption kennels  for unwanted or stray animals</li>
-                </ul>
-          </div>
+                {{#if admin}}
+                  <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                {{/if}}
+              </div>
         </div>
         <div class="col-md-3">
-          <img class="img-responsive" src="/Images/ClinicPics/sterilize-cat.jpg" alt="">
+          <div id="givenGainImageDiv6 " name="ElementId" {{#if admin}}  class="Div borderClass "{{/if}}  >
+
+            {{#givenGainImageDiv6}}
+              <img class="img" class="img-responsive" src="{{image}}">
+            {{/givenGainImageDiv6}}
+
+            {{#if admin}}
+                <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/updateImage"  ></a>
+                {{/if}}
+          </div>
+          <!-- <img class="img-responsive" src="/Images/ClinicPics/sterilize-cat.jpg" alt=""> -->
 
 
 
@@ -114,9 +183,17 @@
 
                     <div class="col-md-6">
 
-                  <p>For over 80 years the Society has been helping the cats and dogs of the Cape Flats, and has developed from one mobile clinic to a state-of-the-art hospital with space for up to 120 sick animals.  The Adoption Kennels provide space for around 60 dogs and cats.</p>
+                      <div id="givenGainDiv5" name="ElementId" {{#if admin}}  class="Div borderClass"{{/if}}>
+                        {{#givenGainDiv5}}
+                          <div class="Text" name="updatedText">
+                            {{{updatedText}}}
+                          </div>
+                        {{/givenGainDiv5}}
 
-
+                        {{#if admin}}
+                          <a  class="Button glyphicon glyphicon-edit btn btn-primary pull-right" href="/update"  ></a>
+                        {{/if}}
+                      </div>
 
 
 
@@ -137,3 +214,56 @@
     </div>
   </div>
 </div>
+
+<script>
+
+  $(".Button").click(function(e){
+    var elementId = $(this).closest('div').attr('id');
+    ElementName = elementId;
+
+    var text = $(this).closest('div').find('.Text').text();
+     updatedText = text;
+
+  //   var Title = $(this).closest('div').find('.Title').text();
+    //  heading=Title;
+    //
+     var PageURL = this.PageURL;
+     var url = window.location.href;
+    //
+    PageURL = url;
+
+     var data ={
+       Text: updatedText,
+       PageURL : PageURL,
+       ElementId : ElementName
+     }
+
+     sessionStorage.setItem('data', JSON.stringify(data));
+
+
+     console.log(data);
+
+    //  $.get('/updateAboutUs', function(data){
+    //  });
+
+
+     });
+
+     $('.Button').on('mouseenter',function(){
+       $(this).closest('.Div').addClass('box-shadow');
+
+       $('.Div').on('mouseleave',function(){
+          $(this).closest('.Div').removeClass('box-shadow');
+       })
+
+     })
+
+
+
+
+
+
+
+
+
+  </script>

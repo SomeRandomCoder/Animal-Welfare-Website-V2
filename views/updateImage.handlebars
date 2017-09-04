@@ -1,0 +1,55 @@
+
+  <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 class="page-header">Update Image</h1>
+  </div>
+
+  <!-- <h1>ADD ANIMAL TO ADOPTIONS</h1> -->
+  <form  id="myForm" action='/updateImage/add'  method='POST'  enctype="multipart/form-data" >
+    <div class=col-md-12 hidden="hidden" >
+      <label> ELEMENTID:</label>
+      <input id="ElementId" type="text" name="ElementId" class="form-control" type="text"><h3> </h3></input>
+    </div>
+
+    <div class=col-md-12 hidden="hidden" >
+      <label> pageURL:</label>
+      <input id="PageURL" type="text" name="PageURL" class="form-control" type="text"><h3> </h3></input>
+    </div>
+
+    <div class="col-md-12" >
+      <input name='img' type="file" class="form-control"  required/>
+    </div>
+    <div>
+
+        <button type="submit" class="glyphicon glyphicon-submit btn btn-primary ">
+
+      </div>
+  </form>
+
+
+
+
+
+  <script>
+  $(document).ready(function()
+  {
+    var temp =sessionStorage.getItem('data');
+    var data = $.parseJSON(temp);
+    var elementId = data.ElementId;
+    var pageURL = data.PageURL;
+
+    var formElementId  = $('#myForm').find('#ElementId').val(elementId);
+    var formPageURL  = $('#myForm').find('#PageURL').val(pageURL);
+  });
+
+  $('#myForm input ').on('change', function()
+  {
+    var formElementId  = $('#ElementId').val();
+    var formPageURL  = $('#PageURL').val();
+    var data =
+    {
+      ElementId: formElementId,
+      PageURL: formPageURL
+    }
+    console.log(data);
+  });
+  </script>

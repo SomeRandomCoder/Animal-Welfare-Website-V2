@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `updatedimages`(
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `elementId` varchar(45) NOT NULL,
+  `PageURL` varchar(500) NOT NULL.
+  `image` TEXT NOT NULL,
+
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

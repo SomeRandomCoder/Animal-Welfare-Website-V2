@@ -24,7 +24,7 @@ var dbOptions = {
 var connection = mysql.createConnection(dbOptions);
 exports.add = function(req, res) {
 
-       //var path = (req.file.path).replace("public\\", ''); //USE THIS LINE OF CODE WHEN  TESTING ON WINDOWS MACHINE  ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE DUE TO PATH IN 'IMAGE' COLUMN IS A \
+    //var path = (req.file.path).replace("public\\", ''); //USE THIS LINE OF CODE WHEN  TESTING ON WINDOWS MACHINE  ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE DUE TO PATH IN 'IMAGE' COLUMN IS A \
     var path = (req.file.path).replace("public/", ''); //USE THIS LINE OF CODE WHEN  TESTING ON LINUX MACHINE ELSE IMAGES WONT LOAD WHEN GETTING ANIMALS FROM DATABASE
 
     var data = {
@@ -118,57 +118,7 @@ exports.allAnimalsRefCode = function(req, res, next){
     });
   });
 };
-//--------------------BACKUP-----------------------------
 
-// exports.showCat = function(req, res) {
-//   var data =
-//     {
-//       size: req.body.size
-//     }
-//     console.log(data);
-//     connection.query('SELECT * FROM `adoptions` WHERE animal = "cat" and size LIKE ?', [data], function(err, results) {
-//         // console.log(results);
-//         return res.render('adoptCat', {
-//             data: results,
-//             admin: req.session.admin,
-//             user: req.session.username
-//         });
-//     });
-// };
-
-// exports.showCat = function(req, res) {
-//
-//     connection.query('SELECT * FROM `adoptions` WHERE animal = "cat" ', [], function(err, results) {
-//         // console.log(results);
-//         return res.render('adoptCat', {
-//             data: results,
-//             admin: req.session.admin,
-//             user: req.session.username
-//         });
-//     });
-// };
-//
-//
-//
-
-
-// exports.search = function(req, res, next){
-//   req.getConnection(function(err, connection) {
-//     var searchVal =  req.params.searchVal;
-//     connection.query('SELECT * FROM adoptions WHERE animal="cat" and adoptions.size LIKE ?', [searchVal], function(err, result){
-//       if(err) return console.log(err);
-// 			console.log(searchVal);
-//       res.render('adoptCatSearch',{
-//             search : result,
-//         		admin: req.session.admin,
-// 						user: req.session.username,
-// 						layout:false
-//
-//       });
-//     });
-//   });
-// };
-//-----------------------------------END----------------------------------
 
 exports.showDog = function(req, res) {
     connection.query('SELECT * FROM `adoptions` WHERE animal = "dog"', [], function(err, results) {

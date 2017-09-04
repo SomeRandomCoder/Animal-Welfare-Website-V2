@@ -9,6 +9,7 @@ var bcrypt=require("bcryptjs");
 var multer = require('multer');
 var flash=require('express-flash');
 
+
 // var co = require("co");
 var app = express();
 
@@ -17,17 +18,22 @@ var adoptions = require('./functions/adoptions');
 var mailer = require('./functions/mailer');
 var eventCRUD = require('./functions/eventCRUD');
 var animalDonations = require('./functions/AnimalDonations');
+var contentUpdate = require("./functions/ContentUpdate");
 
 var login = require("./functions/login");
 
+app.use(bodyParser.json({
+  limit: 10000000
+}));
 app.use(bodyParser.urlencoded({
   keepExtensions: true,
   extended: false
 }));
 
-app.use(bodyParser.json({
-  limit: 10000000
-}));
+
+
+
+
 app.use(flash());
 
 app.use(express.static("public"));
@@ -53,26 +59,12 @@ var dbOptions = {
 
 app.use(myConnection(mysql, dbOptions, "single"));
 
-// var connection = mysql.createConnection(dbOptions);
-
-
-
-
 app.engine("handlebars", handlebars({
   defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 
-
-//app.use(multer({dest: './public/uploads/'}).any());
-
-// var uploads = multer({
-//   dest: './public/uploads/'
-// });
-
 app.use(function(req,res,next){
-
-
 
   var admin = req.session.admin && req.session.username,
       user =  req.session.username,
@@ -96,11 +88,16 @@ app.use(function(req,res,next){
               || req.path.split("/")[1] === "addEvent"
               || req.path.split("/")[1] === "adoptCatSearch"
               || req.path.split("/")[1] === "donationsCapture"
+              || req.path.split("/")[1] === "update"
+              || req.path.split("/")[1] === "updateImage"
+
               || req.path === "/";
 
 
 
   var adminPath = req.path.split("/")[2] === "add"
+                ||req.path.split("/")[2] === "update"
+
                //||req.path.split("/")[1] === "Comments"
                || req.path.split("/")[1] === "allAnimals";
 
@@ -136,31 +133,35 @@ app.get("/donationsCapture", function(req,res){
   res.render("donationsCapture",{admin:req.session.admin, user:req.session.username});
 });
 
-app.get("/", function(req, res) {
-  res.render("index",{admin: req.session.admin, user: req.session.username});
-});
+app.get("/", contentUpdate.showIndex);
 
-app.get("/aboutus", function(req, res) {
-  res.render("AboutUs",{admin: req.session.admin, user: req.session.username});
-});
+app.get('/aboutUs', contentUpdate.showAboutUs);
 
-app.get("/aboutusindividuals", function(req, res) {
-  res.render("AboutUsIndividuals",{admin: req.session.admin, user: req.session.username});
+app.get("/update", function(req, res) {
+  res.render("updateAboutUs",{admin: req.session.admin, user: req.session.username});
 });
+app.get("/updateImage", function(req,res){
+  res.render("updateImage", {admin:req.session.admin, user: req.session.username});
+})
 
-app.get("/adoptions", function(req, res) {
-  res.render("adoptions",{admin: req.session.admin, user: req.session.username});
-});
+// app.post("/images/update",multer({ dest: './public/updatedImages/'}).single('img') , contentUpdate.addImage);
+
+app.post("/update/content/", contentUpdate.addContent);
+
+app.get("/news", contentUpdate.showNews);
+app.get("/adoptions", contentUpdate.showAdoptions);
 
 app.get("/adoptions/add", function(req, res) {
   res.render("addAnimal",{admin: req.session.admin, user: req.session.username});
 });
 
+app.get("/lostandfound", contentUpdate.showLostAndFound);
 
+app.get("/GivenGain", contentUpdate.showGivenGain);
 
+app.get("/inspectors", contentUpdate.showInspectors);
 
-
-//app.post('/adoptions/add', uploads.single('img'), adoptions.add);
+app.post("/updateImage/add",multer({ dest: './public/uploads/'}).single('img') ,contentUpdate.addImage);
 app.post('/adoptions/add',multer({ dest: './public/uploads/'}).single('img') ,adoptions.add);
 
  app.get("/adoptCat", adoptions.showCat);
@@ -173,37 +174,20 @@ app.post("/adoptDog/search/", adoptions.searchDog);
 
 app.get("/allAnimals", adoptions.showAll);
 app.post('/allAnimals/remove/:id', adoptions.remove);
-  app.get("/allAnimals/search/:searchVal", adoptions.allAnimalsRefCode);
- app.post("/allAnimals/search/", adoptions.allAnimalsRefCode);
+app.get("/allAnimals/search/:searchVal", adoptions.allAnimalsRefCode);
+app.post("/allAnimals/search/", adoptions.allAnimalsRefCode);
 
-
- // app.get("/Events", function(req, res) {
- //   res.render("Events",{admin: req.session.admin, user: req.session.username});
- // });
-  app.get('/Events', eventCRUD.showAll);
-  app.post('/Events/addEvent', eventCRUD.add);
-  app.post('/Events/remove/:id', eventCRUD.remove);
-  app.get("/addEvent", function(req,res){
-    res.render("addEvent",{admin: req.session.admin, user: req.session.username});
-  });
-
-
-app.get("/inspectors", function(req, res) {
-  res.render("inspectors",{admin: req.session.admin, user: req.session.username});
+app.get('/Events', eventCRUD.showAll);
+app.post('/Events/addEvent', eventCRUD.add);
+app.post('/Events/remove/:id', eventCRUD.remove);
+app.get("/addEvent", function(req,res){
+  res.render("addEvent",{admin: req.session.admin, user: req.session.username});
 });
+
 app.post("/inspectors", mailer.contactInspectors)
 
-app.get("/news", function(req, res) {
-  res.render("news",{admin: req.session.admin, user: req.session.username});
-});
-
-app.get("/lostandfound", function(req, res) {
-  res.render("lostAndFound",{admin: req.session.admin, user: req.session.username});
-});
-
-app.get("/GivenGain", function(req, res) {
-  res.render("GivenGain",{admin: req.session.admin, user: req.session.username});
-});
+app.get("/contactUs", contentUpdate.showContactUs);
+app.post('/contactus', mailer.contactUs);
 
 app.get("/directions", function(req,res){
   res.render("directions",{admin: req.session.admin, user: req.session.username});
@@ -214,37 +198,8 @@ app.get("/directions", function(req,res){
 
 
 
-// app.get('/Comments', function(req, res, next) {
-//     req.getConnection(function(err, connection) {
-//       connection = mysql.createConnection(dbOptions);
-//         // connection = mysql.createConnection(dbOptions);
-//         if (err) return next(err);
-//         connection.query("SELECT events.title, events.description, DATE_FORMAT(events.date,'%W %m-%d-%Y at %l:%i:%p') as date, events.name FROM events ORDER BY `events`.`date` DESC", [],function(err, data) {
-//             if (err) return next(err);
-//             if(req.session.admin){
-//               res.render("Comments", {
-//                 data: data,
-//                 admin: req.session.admin ,
-//                   user: req.session.username
-//             });
-//           }
-//           else{
-//             res.render("comments",{
-//               data: data
-//             });
-//           }
-//             // timestamp format:    '%W %m %d %Y at %l:%i:%p'     Date:'%d %b %y'
-//         });
-//     });
-// });
 
 
-
-
-app.get("/contactUs", function(req, res) {
-  res.render("contactUs",{admin: req.session.admin, user: req.session.username});
-});
-app.post('/contactus', mailer.contactUs);
 
 
 
