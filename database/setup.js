@@ -26,16 +26,29 @@ var data = {username: 'admin',
             password: hash,
             admin: 1};
 
-connection.query(users, [], function(err, rows){
-if(err) console.log(err);
-connection.query(events, [], function(err, rows){
-if(err) console.log(err);
-connection.query(adoptions,[], function(err, rows){
-if(err) console.log(err);
-connection.query(admin, [data], function(err, rows ){     //COMMENT THESE THREE LINES OUT IF YOU INTEND TO USE IT IN APP.JS
-  if(err) console.log(err);                               //OTHERWISE IF YOU RUN THE FILE FROM HERE IT CAN STAY :)
-});                                                       //ITS JUST INSERTING THE ADMIN USER TO THE TABLE.
-});
-});
-});
+connection.query(users, [], function(err, rows)
+  {
+  if(err) console.log(err);
+  connection.query(events, [], function(err, rows)
+    {
+    if(err) console.log(err);
+    connection.query(adoptions,[], function(err, rows)
+      {
+      if(err) console.log(err);
+      connection.query(admin, [data], function(err, rows )
+        {     //COMMENT THESE THREE LINES OUT IF YOU INTEND TO USE IT IN APP.JS
+          if(err) console.log(err);
+        connection.query(editableContent,[], function(err, rows)
+          {
+
+            if(err) console.log(err);
+              connection.query(updatedImages,[], function(err, rows)
+                {
+                  if(err) console.log(err);
+                });
+          });
+        });                           //OTHERWISE IF YOU RUN THE FILE FROM HERE IT CAN STAY :)
+      });                                                       //ITS JUST INSERTING THE ADMIN USER TO THE TABLE.
+    });
+  });
 });
